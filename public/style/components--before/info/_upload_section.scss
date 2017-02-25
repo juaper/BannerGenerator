@@ -1,0 +1,123 @@
+.upload-section{
+  @media(max-width: 767px){
+    padding:5px;
+  }
+  .upload_button{
+    @media(max-width: 767px){
+      width: 98% !important;
+      margin-bottom: 0;
+    }
+  }
+
+  h1, h4{
+    text-align:center;
+    margin-bottom:20px;
+  }
+  h1{
+    @media(max-width: 767px){
+      margin-top:5px;
+      font-size:18px;
+    }
+  }
+  h4{
+    @media(max-width: 767px){
+      font-size:14px;
+    }
+  }
+
+  form{
+    display:block;
+    margin: 0 auto;
+    width:30%;
+    @media(max-width:767px){
+      width: 98%;
+    }
+  }
+  input[type="text"],textarea{
+    display:block;
+    width:100%;
+    align-self:center;
+    -webkit-box-shadow: 4px 10px 44px -16px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 10px 44px -16px rgba(0,0,0,0.75);
+    box-shadow: 4px 10px 44px -16px rgba(0,0,0,0.75);
+    height:40px;
+    padding: 10px;
+    border: solid 1px #fff;
+    transition: box-shadow 0.3s;
+    border-width: 1px!important;
+    border-style: solid!important;
+    height:50px!important;
+    margin-top: 10px;
+    color: black;
+    @media(max-width:767px){
+      width:98%!important;
+      height: 40px !important;
+      margin : 0 auto;
+      margin-bottom:10px;
+    }
+    @media(max-width:767px){
+      height:30px;
+    }
+    &.focus, &:focus,&:active{
+      box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+      outline: 0 !important;
+    }
+  }
+  textarea{
+    height:80px !important;
+    resize: none;
+    margin-bottom: 10px;
+    @media(max-width:767px){
+      width:98%!important;
+    }
+  }
+
+  label[for="files"]{
+    margin-top:10px !important;
+  }
+
+  .upload_meme_btn{
+    width: .1px!important;
+    height: .1px!important;
+    opacity: 0!important;
+    overflow: hidden!important;
+    position: absolute!important;
+    z-index: -1!important;
+  }
+  #submit{
+    margin-top:10px;
+    @media(max-width:767px){
+      margin: 10px auto 0 auto;
+      display:block;
+      width: 98%;
+    }
+  }
+  #submit{
+    @extend .upload_button;
+    display:block;
+    border:none;
+    outline:none;
+    background-color: #5fcf80;
+    line-height:36px;
+    @media(max-width:767px){
+      margin: 10px auto 0 auto;
+      display:block;
+      width: 98%;
+    }
+    &:hover{
+      background-color: lighten(#5fcf80, 5%);
+    }
+
+  }
+
+h3.confirmation_message{
+  color: #5fcf80;
+    text-align:center;
+  margin-top:100px;
+  font-size:40px;
+  @media(max-width: 767px){
+    font-size:20px;
+    margin-top:30px;
+  }
+}
+}

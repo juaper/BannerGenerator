@@ -1,0 +1,25 @@
+@import './memes-display-area/section-title';
+@import './memes-display-area/meme-thumbs';
+@import './generator/generator';
+@import './memes-display-area/back-to-top';
+@import './top-section/top_section';
+@import './top-section/search-input.scss';
+@import './top-section/upload-button.scss';
+@import './top-section/down-arrow';
+@import '././info/info';
+@import '././info/about-section';
+@import '././info/tutorial-section';
+@import '././info/upload_section';
+@import './top-section/selecet_box';
+//generator controllers
+@import './generator/generator_controllers/text_controllers.scss';
+@import './generator/generator_controllers/buttons/controllers_buttons_style';
+@import './generator/generator_controllers/buttons/add_line_button';
+@import './generator/generator_controllers/buttons/change_format_button';
+@import './generator/generator_controllers/buttons/color_picker_button';
+@import './generator/generator_controllers/buttons/download_btn';
+@import './generator/generator_controllers/buttons/example-items_buttons';
+
+@import './generator/generator_controllers/_color-picker.scss';
+@import './generator/generator_controllers/_example-section.scss';
+@import './generator/generator_controllers/_items-sction.scss';

@@ -1,0 +1,35 @@
+.text-control__btn{
+  flex-grow: 1;
+  border-right: 1px solid darken($purple,10%);
+  height:35px;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  background: $purple;
+  color: white;
+  cursor:pointer;
+  marginb-ttom: 10px;
+  &.bold{
+    font-weight:bold !important;
+  }
+  &.lite{
+    font-weight: 100 !important;
+  }
+  &.black{
+    color:black;
+  }
+
+  &:first-child{
+    border-radius: 0 0 0 5px;
+  }
+  &:last-child{
+    border-radius: 0 0 5px 0;
+  }
+
+  &:hover{
+    background : darken($purple, 10%);
+  }
+  &:active{
+    background : darken($purple, 20%);
+  }
+}

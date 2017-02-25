@@ -1,0 +1,73 @@
+.tutorial-section{
+  box-sizing:border-box;
+  padding:25px 35px;
+  @media(max-width:767px){
+    padding: 5px;
+  }
+  .image{
+    box-sizing: border-box;
+    padding-right:20px;
+    float:left;
+    width:50%;
+    margin-top: 25px;
+    @media(max-width:767px){
+      width:98%;
+      float:none;
+      display:none;
+    }
+    img{
+      width:80%;
+      display:block;
+      margin: 0 auto;
+      @media(max-width: 767px){
+      }
+    }
+  }
+  .text{
+    float:left;
+    width:50%;
+    @media(max-width:767px){
+      width:98%;
+      float:none;
+    }
+    h1{
+      font-size:25px;
+      font-weight:bold;
+      @media(max-width:767px){
+        font-size:14px;
+        margin-top: 10px;
+      }
+    }
+    p,a,li{
+      font-size:17px;
+      @media(max-width:767px){
+        font-size:12px;
+      }
+    }
+    ul{
+      @media(max-width:767px){
+      padding-right:17px;
+      }
+    }
+    li{
+      margin: 10px 0;
+    }
+    p {
+      &:first-child {
+        font-size: 19px;
+      }
+      &:nth-child(3){
+        font-weight:700;
+      }
+    }
+
+    .example_meme_new{
+      display:block;
+      color: #3b5998;
+      cursor:pointer;
+      &:hover{
+        color: darken(#3b5998, 30%);
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+.about-section{
+  box-sizing:border-box;
+  padding:25px 70px;
+  @media(max-width:767px){
+    padding:5px;
+  }
+  .image{
+    width:35%;
+    float:left;
+    @media(max-width:767px){
+      width:98%;
+      float:none;
+    }
+    img{
+      float:left;
+      display:block;
+      margin: 0 auto;
+
+      width:150px;
+      height:150px;
+      object-fit:cover;
+      border-radius:300px;
+      @media(max-width:767px){
+       margin: 0 auto;
+        width:40px;
+        height:40px;
+        display:block;
+        float:none;
+        margin-bottom:5px;
+      }
+    }
+  }
+  .text{
+
+    a{
+      cursor:pointer;
+    }
+    p{
+      direction: rtl;
+      text-align: right;
+      font-size: 17px;
+      margin : 5px 0;
+      @media(max-width:767px){
+        font-size:12px;
+        margin: 5px 0;
+      }
+      &:last-child{
+        margin: 30px 0;
+      }
+    }
+    width:65%;
+    float:left;
+    font-family: "Open Sans Hebrew";
+    @media(max-width:767px){
+      width:98%;
+    }
+    h1{
+      margin-top: 0;
+      font-size:25px;
+      font-weight:bold;
+      @media(max-width:767px){
+        text-align:center;
+        margin-top: 7px;
+        font-size:18px;
+      }
+    }
+    .email_link{
+      display:block;
+      font-size:16px;
+      margin:8px 0 12px 0;
+        @media(max-width:767px){
+          font-size:12px;
+        }
+    }
+    .fb_p{
+      font-size:16px;
+      display:block;
+      margin:5px 0;
+      font-weight:bold;
+      @media(max-width:767px){
+        font-size:13px;
+      }
+      &.football{
+        color: lightseagreen;
+        &:hover{
+          color: darken(lightseagreen, 5%)
+        }
+      }
+      &.bgumo{
+        color: orangered;
+        &:hover{
+          color: darken(orangered, 5%)
+        }
+      }
+      &.king{
+        color: cornflowerblue;
+        &:hover{
+          color: darken(cornflowerblue, 5%)
+        }
+      }
+      &.tel-aviv{
+        color:purple;
+        &:hover{
+          color: darken(purple, 5%)
+        }
+      }
+    }
+  }
+}

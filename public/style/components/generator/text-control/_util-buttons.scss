@@ -1,0 +1,68 @@
+$mainGeneratorControllersColor: #c25975;
+$green : #5fcf80;
+$bordercolor: darken(#c25975, 10%);
+
+
+.generator-uploader-wrapper{
+  width: 49%;
+    @include mobile-medium{
+      width: 100%;
+    }
+
+}
+
+
+
+.utils_button{
+  justify-content: center;
+  align-items:center;
+  height:40px;
+  text-align: center;
+  margin-top:8px;
+  background-color: $mainGeneratorControllersColor;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-bottom: 4px solid $bordercolor;
+  border-radius: 5px;
+  cursor:pointer;
+  display: flex;
+
+  @include mobile-medium{
+    width: 100% !important;
+    margin-bottom: 0;
+  }
+
+  .flex > &{
+    flex-grow: 2;
+
+    &:first-child{
+      margin-right: 10px;
+    }
+  }
+
+  &.download{
+    background-color: darken($mainGeneratorControllersColor, 8%);
+    border-color: darken($bordercolor, 8%)
+  }
+
+  &:active{
+    -webkit-box-shadow: inset 17px -14px 120px -55px rgba(0,0,0,0.43);
+    -moz-box-shadow: inset 17px -14px 120px -55px rgba(0,0,0,0.43);
+    box-shadow: inset 17px -14px 120px -55px rgba(0,0,0,0.43);
+  }
+
+  &:hover{
+    color:white;
+    background-color: darken($mainGeneratorControllersColor, 5%);;
+    color:white;
+    cursor:pointer;
+  }
+
+  span:not(.glyphicon){
+    width:120px;
+  }
+  .glyphicon{
+    margin-right: 20px;
+  }
+}
+

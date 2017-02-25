@@ -1,0 +1,132 @@
+
+
+
+#background-top {
+  background: #f4f4f4;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  padding-bottom: 8%;
+  padding-top: 7%;
+  height:auto;
+  min-height: 100vh;
+
+
+
+  @media(max-width:767px) {
+    background-size: cover;
+    background-attachment: scroll;
+    padding-bottom: 4%;
+    height:auto;
+    min-height:inherit;
+  }
+
+
+  h2 {
+    color: #53a1e6 ;
+    font-size: 3em;
+    margin: 1% 0 2%;
+    font-weight: 200;
+    margin-bottom:55px;
+    @media(max-width:767px){
+      margin-bottom:0;
+      font-size:16px;
+      max-width: 70%;
+      text-align:center;
+      margin: 0 auto
+    }
+  }
+
+  h1#logo-title {
+    font-size: 7em!important;
+    color: #53a1e6!important;
+    font-weight:bold;
+    @media(max-width:767px){
+      font-size: 2.2em !important;
+    }
+  }
+
+  .tow_images_description{
+    margin: 2px 0;
+    text-align:center;
+    padding: 1px;
+    color:white;
+    align-self: center;
+  }
+
+  .logo{
+    width:100px;
+    margin: 0 auto;
+    display:block;
+    @media(max-width:767px){
+      width:50px;
+    }
+  }
+
+
+  .google_play{
+    width:200px;
+    margin: 0 auto;
+    position:fixed;
+    top:10px;
+    left:10px;
+    @media(max-width:767px){
+      width:90%;
+      display:none;
+    }
+    &.google_play_mobile{
+      display:none;
+      @media(max-width:767px){
+        display:block;
+        max-width:50px;
+        margin: 5px auto;
+      }
+    }
+  }
+
+  a#app-link{
+    display:block;
+  }
+
+
+  .top_buttons_wrapper{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    @media(max-width:767px){
+      margin-top:20px;
+    }
+  }
+
+  #found-memes{
+    margin: 15px 0;
+    display:flex;
+    flex-direction: row;
+    justify-content:  space-between;
+    .row{
+      @media(max-width:767px){
+       padding:inherit;
+        overflow-x:visible;
+      }
+    }
+    @media(max-width:767px){
+      margin: auto;
+    }
+    .found-memes{
+      margin-top:5px;
+      align-self:center;
+    }
+  }
+}
+
+
+
+.error-message{
+  display:none;
+  h3{
+    color: #53a1e6;
+    font-weight:bold;
+    @media(max-width:767px){
+      font-size: 14px;
+    }
+  }
+}

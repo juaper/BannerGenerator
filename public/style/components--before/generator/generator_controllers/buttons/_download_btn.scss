@@ -1,0 +1,9 @@
+.download_btn {
+  @extend %generator_controller_button;
+  background-color: darken($mainGeneratorControllersColor, 15%);
+  border-bottom: 4px solid darken($bordercolor, 15%);
+  &:hover {
+    background-color: darken($mainGeneratorControllersColor, 18%);;
+    color: white;
+  }
+}

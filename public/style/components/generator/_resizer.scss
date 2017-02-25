@@ -1,0 +1,6 @@
+.resizer-wrapper{
+  width: 47%;
+  @include mobile-medium{
+    width: 100%;
+  }
+}

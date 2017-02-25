@@ -1,0 +1,9 @@
+.clean-slate-btn{
+  @extend .button--shadow;
+  background: white;
+  margin-top: 10px;
+  color: $mainColor !important;
+  &:hover{
+    background: darken(#fff, 3%)
+  }
+}

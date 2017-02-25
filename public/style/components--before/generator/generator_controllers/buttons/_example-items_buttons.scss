@@ -1,0 +1,16 @@
+.example_button, .items_button {
+  @extend %generator_controller_button;
+  width: calc(50% - 1.5px);
+  margin-bottom:0;
+  @media(max-width:767px){
+    font-size:12px;
+    padding: 5px;
+    .fa{
+      margin-right:5px;
+    }
+  }
+}
+
+.example_button{
+  margin-left: 3px;
+}

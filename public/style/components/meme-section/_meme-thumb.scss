@@ -1,0 +1,41 @@
+
+
+.LazyLoad{
+  height: 100%;
+}
+
+
+.meme-thumb{
+  height:160px;
+  width: 12.5%;
+  overflow:hidden;
+  position:relative;
+  cursor:pointer;
+
+  @include mobile-medium{
+    width:33.333333333333%;
+    height: 100px;
+  }
+
+  &:hover{
+    .meme-thumb__overlay{
+      opacity : 1;
+    }
+  }
+
+  .meme-thumb__img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+  }
+  .meme-thumb__overlay{
+    opacity:0;
+    position:absolute;
+    left: 0;
+    top : 0;
+    width:100%;
+    height: 100%;
+    transition :1s;
+    background: rgba(0,0,0,0.3);
+  }
+}

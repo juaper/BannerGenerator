@@ -1,0 +1,42 @@
+
+$mainGeneratorControllersColor: #c25975;
+$green : #5fcf80;
+$bordercolor: darken(#c25975, 10%);
+
+
+
+
+%generator_controller_button{
+  padding: 6px 16px;
+  width:100%;
+  background-color: $mainGeneratorControllersColor;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-bottom: 4px solid $bordercolor;
+  display: inline-block;
+  text-align:center;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor:pointer;
+  margin: 5px 0;
+  .fa{
+    margin-right: 10px;
+  }
+  &:hover{
+    background-color: darken($mainGeneratorControllersColor, 5%);;
+    color:white;
+    cursor:pointer;
+  }
+  &:active{
+    -webkit-box-shadow: inset 17px -14px 120px -55px rgba(0,0,0,0.43);
+    -moz-box-shadow: inset 17px -14px 120px -55px rgba(0,0,0,0.43);
+    box-shadow: inset 17px -14px 120px -55px rgba(0,0,0,0.43);
+  }
+  @media(max-width:767px){
+    height: 30px;
+    padding: 3px;
+  }
+}
+
+
+

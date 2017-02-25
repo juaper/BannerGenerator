@@ -1,0 +1,12 @@
+.top{
+  height: 100vh;
+  background : lighten(#d7d7d7, 12%);
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  @include mobile-medium{
+    height: auto;
+    padding-bottom:50px;
+    padding-top: 40px;
+  }
+}
