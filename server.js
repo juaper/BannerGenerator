@@ -147,7 +147,15 @@ app.get('/different', function (req, res) {
 
 
 
+/*
 
 var port = process.env.PORT || 8081; //(or whatever)
 
 app.listen(port);
+*/
+app.set( 'port', ( process.env.PORT || 8081 ));
+
+// Start node server
+app.listen( app.get( 'port' ), function() {
+    console.log( 'Node server is running on port ' + app.get( 'port' ));
+});
