@@ -111,24 +111,7 @@ app.get('/categories', function (req, res) {
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 })
-app.get('/popular', function (req, res) {
-    res.send(popularMemesArray);
-})
-app.get('/classic', function (req, res) {
-    res.send(classicMemesArray);
-})
-app.get('/situations', function (req, res) {
-    res.send(situationsMemesArray);
-})
-app.get('/israeli', function (req, res) {
-    res.send(israeliMemesArray);
-})
-app.get('/pop', function (req, res) {
-    res.send(popMemesArray);
-})
-app.get('/different', function (req, res) {
-    res.send(differentMemesArray);
-})
+
 
 
 
@@ -158,4 +141,6 @@ app.set( 'port', ( process.env.PORT || 8081 ));
 // Start node server
 app.listen( app.get( 'port' ), function() {
     console.log( 'Node server is running on port ' + app.get( 'port' ));
+    console.log(path.join(__dirname + '/public/index.html'))
+
 });
