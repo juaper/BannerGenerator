@@ -148,6 +148,6 @@ app.get('/different', function (req, res) {
 
 
 
-var port = process.env.port || 8081; //(or whatever)
+var port = process.env.PORT || 5000 || 8081; //(or whatever)
 
 app.listen(port);
