@@ -372,8 +372,7 @@ export class TextControl extends Component{
               />
               <TextControlButton
                   clickEvent={this.toggleTextColor}
-                  icon=''
-                  text="א"
+                  icon='glyphicon glyphicon-text-color'
                   className={this.state.currentTextColor === 'white' ? 'black' : "white"}
               />
 
