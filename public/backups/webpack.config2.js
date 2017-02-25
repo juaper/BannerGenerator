@@ -1,8 +1,4 @@
 
-
-/**
- * Created by nirbenya on 20/02/2017.
- */
 const path = require('path');
 const webpack = require('webpack');
 
