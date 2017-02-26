@@ -24443,9 +24443,21 @@
 	        var _this = _possibleConstructorReturn(this, (Canvas.__proto__ || Object.getPrototypeOf(Canvas)).call(this, props));
 
 	        _this.componentDidMount = function () {
-	            var canvas = new fabric.Canvas('c');
+	            var canvas = new fabric.Canvas('c', { allowTouchScrolling: true });
 	            canvas.backgroundColor = '#fff';
 	            _this.props.setCanvas(canvas);
+
+	            _this.enableWindowScrollOnDrag(canvas);
+	        };
+
+	        _this.enableWindowScrollOnDrag = function (canvas) {
+
+	            canvas.on('mouse:down', function (options) {
+	                document.querySelector(".generator").style.overflow = 'visible';
+	            });
+	            canvas.on('mouse:up', function (options) {
+	                document.querySelector(".generator").style.overflow = 'scroll';
+	            });
 	        };
 
 	        return _this;

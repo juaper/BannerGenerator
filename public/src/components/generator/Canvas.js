@@ -8,10 +8,22 @@ export  class Canvas extends Component {
 
     }
     componentDidMount = ()=>{
-        const canvas = new fabric.Canvas('c');
+        const canvas = new fabric.Canvas('c',{allowTouchScrolling: true });
         canvas.backgroundColor = '#fff';
         this.props.setCanvas(canvas);
+
+        this.enableWindowScrollOnDrag(canvas)
     };
+
+    enableWindowScrollOnDrag = (canvas)=>{
+
+        canvas.on('mouse:down', function(options) {
+            document.querySelector(".generator").style.overflow = 'visible';
+        });
+        canvas.on('mouse:up', function(options) {
+            document.querySelector(".generator").style.overflow = 'scroll';
+        });
+    }
 
     render() {
         return (
