@@ -113,7 +113,7 @@ export class TextControl extends Component{
             textBox.lineHeight = 1.3;
 
 
-        })
+        });
         this.setState({currentTextColor: "#000"})
        
     };
@@ -146,22 +146,6 @@ export class TextControl extends Component{
         canvas.renderAll()
     };
 
-    onDelete = (event)=>{
-        if(event.type !== 'keydown'){
-            return;
-        }
-        this.setState({textValue : event.target.value});
-        const {  fillTextBox , strokeTextBox } = this.state;
-        const {canvas} = this.props;
-        if (this.state.textValue === '' ) {
-            this.setState({textValue : event.target.value});
-            canvas.remove(fillTextBox);
-            canvas.remove(strokeTextBox);
-
-
-        }
-    };
-
     onInputChange = (event)=>{
         this.setState({textValue: event.target.value});
         const {fillTextBox ,strokeTextBox, alreadyOnCanvas } = this.state;
@@ -183,19 +167,7 @@ export class TextControl extends Component{
     };
 
 
-    handleTextAreaHeight = (event) => {
-        if(event.target.value.length > this.state.textAreaLimit){
-            var height = $(event.target).css('height');
-            var f_height = parseInt(height.substring(0, height.length - 2)) * 1.3;
-            $(event.target).css('height' , f_height + 'px')
-            this.setState({textAreaLimit : this.state.textAreaLimit * 2})
-        }
-        else if(event.target.value.length  === 0){
-            $(event.target).css('height', '40px')
-        }
-    };
-
-    addText = (value)=>{
+    addText = ()=>{
         const {canvas} = this.props;
         const {strokeTextBox, fillTextBox} = this.state;
         this.setState({alreadyOnCanvas : true});
@@ -252,7 +224,7 @@ export class TextControl extends Component{
         strokeTextBox.fontSize += 5;
         canvas.renderAll();
         this.setStrokeLayerPos(fillTextBox,strokeTextBox);
-    }
+    };
 
     toggleTextColor = ()=>{
         const {fillTextBox, strokeTextBox, currentTextColor} = this.state;
@@ -265,7 +237,7 @@ export class TextControl extends Component{
         }
 
         canvas.renderAll();
-    }
+    };
     makeFontSmaller = ()=>{
         const {fillTextBox, strokeTextBox} = this.state;
         const{canvas} = this.props;
@@ -273,7 +245,7 @@ export class TextControl extends Component{
         strokeTextBox.fontSize -= 5;
         this.setStrokeLayerPos(fillTextBox,strokeTextBox);
         canvas.renderAll();
-    }
+    };
 
     //font weight
     makeFontBold = ()=>{
@@ -282,14 +254,14 @@ export class TextControl extends Component{
         fillTextBox.fontFamily = "impacta_oebold, impact";
         strokeTextBox.fontFamily = "impacta_oebold, impact";
         canvas.renderAll();
-    }
+    };
     makeFontLight = ()=>{
         const {fillTextBox, strokeTextBox} = this.state;
         const{canvas} = this.props;
         fillTextBox.fontFamily = "helvetica";
         strokeTextBox.fontFamily = "helvetica";
         canvas.renderAll();
-    }
+    };
 
     //text-align
     alignTextLeft = ()=>{
@@ -298,14 +270,14 @@ export class TextControl extends Component{
         fillTextBox.textAlign = 'left';
         strokeTextBox.textAlign = 'left';
         canvas.renderAll();
-    }
+    };
     alignTextRight = ()=>{
         const {fillTextBox, strokeTextBox} = this.state;
         const{canvas} = this.props;
         fillTextBox.textAlign = 'right';
         strokeTextBox.textAlign = 'right';
         canvas.renderAll();
-    }
+    };
     alignTextCenter = ()=>{
         const {fillTextBox, strokeTextBox} = this.state;
         const{canvas} = this.props;

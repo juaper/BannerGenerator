@@ -74,18 +74,29 @@ export class TextInputsContainer extends Component {
                 </div>
 
                 <div className="flex space-between">
-                    <Button text={ADD_TEXT_LINE} icon="glyphicon glyphicon-plus" style="auto" click={this.addTextLine} />
-                    <Button text={ADD_AN_ITEM} icon="glyphicon glyphicon-sunglasses" click={this.toggleItemsArea} />
+                    <Button
+                        text={ADD_TEXT_LINE}
+                        icon="glyphicon glyphicon-plus"
+                        style="auto" click={this.addTextLine} />
+                    <Button text={ADD_AN_ITEM} icon="glyphicon glyphicon-sunglasses"
+                            click={this.toggleItemsArea} />
                 </div>
 
                 {this.state.itemsAreaShown ? <ItemsArea /> : ''}
 
-                <Button text={FORMAT_BUTTON_TEXT} style="format-changer" icon="glyphicon glyphicon-retweet" click={this.changeFormat} />
-                <Button text={CLEAR_ALL} icon="glyphicon glyphicon-stop" click={this.clearCanvas} />
+                <Button text={FORMAT_BUTTON_TEXT}
+                        style="format-changer"
+                        icon="glyphicon glyphicon-retweet"
+                        click={this.changeFormat} />
+                <Button text={CLEAR_ALL}
+                        icon="glyphicon glyphicon-stop"
+                        click={this.clearCanvas} />
 
 
-                <Button text={DOWNLOAD} icon="glyphicon glyphicon-download-alt" style="download" click={this.download} />
-
+                <Button text={DOWNLOAD}
+                        icon="glyphicon glyphicon-download-alt"
+                        style="download"
+                        click={this.download} />
             </div>
         );
     }

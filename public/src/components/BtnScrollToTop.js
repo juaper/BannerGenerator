@@ -37,7 +37,7 @@ export default class BtnScrollToTop extends Component {
 
 
 
-    render= ()=> {
+    render = ()=>{
         const btn = (
             <div className="back-to-top__wrapper">
                 <span className="glyphicon glyphicon-chevron-up"/>

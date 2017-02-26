@@ -44,8 +44,8 @@ export class GeneratorUploader extends Component {
 
 
     addItemsToCanvas = ()=>{
-        console.log(localStorage,'ls')
-        for(var prop in localStorage){
+        console.log(localStorage,'ls');
+        for(let prop in localStorage){
             this.addImageToCanvas(localStorage[prop])
         }
     };

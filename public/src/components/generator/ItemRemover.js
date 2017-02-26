@@ -11,7 +11,6 @@ export class ItemRemover extends Component {
 
     componentDidUpdate = ()=> {
         const { canvas } = this.props;
-        const { currentSelected } = this.state;
         const self = this;
         const remover = document.querySelector(".remover");
         canvas.on("object:selected", function () {
@@ -35,8 +34,6 @@ export class ItemRemover extends Component {
 
     render = ()=> {
         const { text, icon, click } = this.props;
-
-
 
         return (
             <div>

@@ -44,7 +44,7 @@ export  class ItemsArea extends Component {
         if(this.props.canvas.getActiveObject()){
             this.props.canvas.getActiveObject().remove();
         }
-    }
+    };
 
 
     renderItems = ()=>{
