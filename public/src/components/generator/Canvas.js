@@ -24,7 +24,7 @@ export  class Canvas extends Component {
         });
         canvas.on('mouse:up', function(options) {
             document.querySelector(".generator").style.overflow = 'scroll';
-            document.querySelector(".body").style.overflow = 'scroll';
+            document.querySelector("body").style.overflow = 'scroll';
 
         });
     }
