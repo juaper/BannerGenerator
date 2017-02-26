@@ -1,11 +1,14 @@
+const webpack = require("webpack");
+
+
 module.exports = {
     entry: [
         './src/index.js'
     ],
     output: {
         path: __dirname,
-        publicPath: './',
-        filename: 'bundle.js'
+        publicPath: '/',
+        filename: './bundle.js'
     },
     module: {
         loaders: [{
@@ -23,5 +26,8 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         contentBase: './'
-    }
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({minimize: true})
+    ]
 };

@@ -19,9 +19,13 @@ export  class Canvas extends Component {
 
         canvas.on('mouse:down', function(options) {
             document.querySelector(".generator").style.overflow = 'visible';
+            document.querySelector("body").style.overflow = 'visible';
+
         });
         canvas.on('mouse:up', function(options) {
             document.querySelector(".generator").style.overflow = 'scroll';
+            document.querySelector(".body").style.overflow = 'scroll';
+
         });
     }
 
