@@ -15,6 +15,10 @@ export class App extends Component {
             if(response.data.country_code === 'IL'){
                 setLanguage('he')
             }
+            else{
+                setLanguage('en')
+
+            }
         })
     };
 
