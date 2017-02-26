@@ -11,8 +11,7 @@ export class App extends Component {
 
     componentWillMount = ()=>{
         const {setLanguage} = this.props;
-        axios.get('http://freegeoip.net/json/').then((response) => {
-            console.log(response.data.country_code)
+        axios.get('https://freegeoip.net/json/').then((response) => {
             if(response.data.country_code === 'IL'){
                 setLanguage('he')
             }
