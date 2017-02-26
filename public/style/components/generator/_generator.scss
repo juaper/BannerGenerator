@@ -76,3 +76,21 @@ $closeColor : darkgray;
   }
 
 }
+
+.bottom_details{
+  @include mobile-medium{
+    margin: 0 auto;
+    max-width: 70%;
+  }
+  h4{
+    @include mobile-medium{
+      font-size:16px;
+      line-height:1.3;
+    }
+  }
+  p{
+    @include mobile-medium{
+      font-size:11px;
+    }
+  }
+}

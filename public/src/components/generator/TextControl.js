@@ -13,14 +13,16 @@ export class TextControl extends Component{
         super(props);
         const fillStyle = {
             "fill": "#fff",
-            "borderColor": "white",
-            "cornerColor": "white",
+            "borderColor": "blue",
+            "cornerColor": "blue",
             "transparentCorners": false,
             "cornerSize": 8,
             editable: false,
-            textAlign: "center",
             fontFamily: "impacta_oebold, impact",
-            lineHeight: 1
+            lineHeight: 1,
+            fontSize : '20',
+            strokeWidth : '0',
+            textAlign : 'center'
         };
         const strokeStyle = {
             strokeLineJoin: "round",
@@ -29,14 +31,26 @@ export class TextControl extends Component{
             hasBorders: false,
             selectable: false,
             editable: false,
-            textAlign: "center",
             fontFamily: "impacta_oebold, impact",
-            lineHeight: 1
+            lineHeight: 1,
+            strokeWidth :'1',
+            fontSize : '20',
+            fill: "#000",
+            textAlign : 'center'
+
         }
-        const fillStyle_newformat_for_first_line = {
-            top: 26, "fill": "#000", "editable": true, "borderColor": "blue", "cornerColor": "blue", "transparentCorners": false, "cornerSize": 8, editable: false, fontSize: 10, textAlign: "right", fontWeight: 100, fontFamily: "Open Sans Hebrew", lineHeight: 1.3,
+        const dankStyle = {
+            "fill": "#000",
+            "borderColor": "blue",
+            "cornerColor": "blue",
+            "transparentCorners": false,
+            "cornerSize": 8,
+            editable: false,
+            fontSize: 10,
+            fontWeight: 100,
+            fontFamily: "helvetica, Open Sans Hebrew",
+            lineHeight: 1.3,
         };
-        console.log('text control props', this.props)
         this.state = {
             textValue : '',
             textAreaLimit : 38,
@@ -45,7 +59,7 @@ export class TextControl extends Component{
             fillTextBox: new fabric.Textbox("", fillStyle),
             strokeTextBox : new fabric.Textbox("", strokeStyle),
             name : this.props.name,
-            currentTextColor : 'white'
+            currentTextColor : '#fff'
         };
     }
 
@@ -71,65 +85,65 @@ export class TextControl extends Component{
     };
 
 
-    styleTextAccordingToCurrentCanvasSize = (textBox, isStroke)=>{
+    styleTextDimensions = (...textBoxes)=>{
         const {canvas} = this.props;
-
-        /** DEFAULT STYLES FOR ALL TEXT BOXES**/
-        textBox.width = canvas.width * 0.975;
-        textBox.left = (canvas.width) / 100;
-        textBox.fontSize = this.props.newFormat ? canvas.width / 15 : canvas.width / 10;
-        textBox.strokeWidth = isStroke ? textBox.fontSize / 6 : 0;
-        textBox.top = this.getTextPosition(textBox,this.state.position);
-
-        canvas.renderAll();
+        textBoxes.forEach((textBox) =>{
+            const isStroke = parseInt(textBox.strokeWidth);
+            /** DEFAULT STYLES FOR ALL TEXT BOXES**/
+            textBox.width = canvas.width * 0.975;
+            textBox.left = (canvas.width) / 100;
+            textBox.fontSize = this.props.newFormat ? canvas.width / 15 : canvas.width / 10;
+            textBox.top = this.getTextPosition(textBox,this.state.position);
+            textBox.strokeWidth = isStroke ? textBox.fontSize / 6 : '0';
+            canvas.renderAll();
+        })
+        
     };
 
-    styleTextAccordingToNewFormat = (textBox , isStroke)=>{
-        if(isStroke){
-            textBox.opacity= '0';
-        }
-        else{
-            textBox.fill = 'black';
-            textBox.fontFamily = 'Helvetica';
-            textBox.textAlign = 'right';
-        }
+    styleTextAccordingToNewFormat = (...textBoxes)=>{
+
+        textBoxes.forEach((textBox)=>{
+            const isStroke = parseInt(textBox.strokeWidth);
+            textBox.fill = '#000';
+            textBox.fontFamily = 'Helvetica Neue, Open Sans Hebrew';
+            textBox.fontWeight = '200';
+
+            textBox.opacity=  isStroke ? '0' : '1';
+            textBox.fontSize = 33;
+            textBox.lineHeight = 1.3;
+
+
+        })
+        this.setState({currentTextColor: "#000"})
+       
     };
 
-    styleTextAccordingToNormalFormt = (textBox , isStroke)=>{
-        if(isStroke){
-            textBox.opacity= '1';
-        }
-        else{
-            textBox.fill = 'white';
-            textBox.fontFamily = 'impacta_oebold, impact';
-            textBox.textAlign = 'center';
-        }
-    }
 
-    styleTextAccordingToNormalFormat = (textBox , isStroke)=>{
-        if(isStroke){
-            textBox.opacity= '1';
-        }
-        else{
-            textBox.fill = '#fff';
-            textBox.fontFamily = 'impacta_oebold, impact';
-            textBox.textAlign = 'center';
 
-        }
+    styleTextAccordingToNormalFormat = (...textBoxes)=>{
+
+        textBoxes.forEach((textBox)=>{
+            const isStroke = parseInt(textBox.strokeWidth);
+            textBox.fill = isStroke ? '#000' :'#fff';
+            textBox.fontFamily = 'impacta_oebold, impact';
+            textBox.opacity=  "1";
+
+        });
+        this.setState({currentTextColor: "#fff"})
+
     };
 
      styleIfDankFormat = (fillTextBox, strokeTextBox) => {
-         const {position, format} = this.props;
+         const {position, format,canvas} = this.props;
          const { currentTextColor } = this.state;
-         const needsDankStyle = ((format === 'dank' && position === 'top') || currentTextColor === 'black');
+         const needsDankStyle = ((format === 'dank' && position === 'top') || currentTextColor === '#000');
         if(needsDankStyle){
-            this.styleTextAccordingToNewFormat(fillTextBox);
-            this.styleTextAccordingToNewFormat(strokeTextBox,true);
+            this.styleTextAccordingToNewFormat(fillTextBox, strokeTextBox);
         }
         else{
-            this.styleTextAccordingToNormalFormat(fillTextBox);
-            this.styleTextAccordingToNormalFormat(strokeTextBox,true);
+            this.styleTextAccordingToNormalFormat(fillTextBox,strokeTextBox);
         }
+        canvas.renderAll()
     };
 
     onDelete = (event)=>{
@@ -155,13 +169,12 @@ export class TextControl extends Component{
         const value = event.target.value;
 
         if(!alreadyOnCanvas){
-            this.styleTextAccordingToCurrentCanvasSize(fillTextBox);
-            this.styleTextAccordingToCurrentCanvasSize(strokeTextBox,true);
+            this.styleTextDimensions(fillTextBox,strokeTextBox);
             this.addText(value);
             this.bindTextBoxEvents();
             this.setStrokeLayerPos(fillTextBox, strokeTextBox);
+            this.styleIfDankFormat(fillTextBox, strokeTextBox);
         }
-        this.styleIfDankFormat(fillTextBox, strokeTextBox);
         strokeTextBox.setText(value);
         strokeTextBox.bringForward();
         fillTextBox.setText(value);
@@ -242,18 +255,13 @@ export class TextControl extends Component{
     }
 
     toggleTextColor = ()=>{
-        const {fillTextBox, strokeTextBox} = this.state;
+        const {fillTextBox, strokeTextBox, currentTextColor} = this.state;
         const { canvas } = this.props;
-        if(this.state.currentTextColor === 'white'){
-            this.styleTextAccordingToNewFormat(fillTextBox,false);
-            this.styleTextAccordingToNewFormat(strokeTextBox,true);
-            this.setState({currentTextColor : 'black'});
+        if(fillTextBox.fill === '#fff'){
+            this.styleTextAccordingToNewFormat(fillTextBox,strokeTextBox);
         }
         else{
-            this.styleTextAccordingToNormalFormt(fillTextBox,false);
-            this.styleTextAccordingToNormalFormt(strokeTextBox,true);
-            this.setState({currentTextColor : 'white'});
-
+            this.styleTextAccordingToNormalFormat(fillTextBox,strokeTextBox);
         }
 
         canvas.renderAll();
@@ -320,26 +328,29 @@ export class TextControl extends Component{
 
     renderButtons = ()=>{
 
+        const {lang} = this.props;
+        const LETTER = lang === 'he' ?  'א' : 'a';
+
       return(
           <div className='flex'>
-              <TextControlButton
-                  clickEvent={this.alignTextRight}
-                  icon="glyphicon glyphicon-align-right"
-                  text=""
-                  className="text-right" />
-              <TextControlButton
-                  clickEvent={this.alignTextCenter}
-                  icon="glyphicon glyphicon-align-center"
-                  text=""
-                  className="text-right" />
-
-
               <TextControlButton
                   clickEvent={this.alignTextLeft}
                   icon="glyphicon glyphicon-align-left"
                   text=""
                   className="text-left" />
 
+
+              <TextControlButton
+                  clickEvent={this.alignTextCenter}
+                  icon="glyphicon glyphicon-align-center"
+                  text=""
+                  className="text-right" />
+
+              <TextControlButton
+                  clickEvent={this.alignTextRight}
+                  icon="glyphicon glyphicon-align-right"
+                  text=""
+                  className="text-right" />
 
               <TextControlButton
                   clickEvent={this.remove}
@@ -361,19 +372,19 @@ export class TextControl extends Component{
               <TextControlButton
                   clickEvent={this.makeFontLight}
                   icon=''
-                  text="א"
+                  text={LETTER}
                   className="lite"
               />
               <TextControlButton
                   clickEvent={this.makeFontBold}
                   icon=''
-                  text="א"
+                  text={LETTER}
                   className="bold"
               />
               <TextControlButton
                   clickEvent={this.toggleTextColor}
                   icon='glyphicon glyphicon-text-color'
-                  className={this.state.currentTextColor === 'white' ? 'black' : "white"}
+                  className={this.state.fillTextBox.fill === '#fff' ? 'white' : "black"}
               />
 
           </div>
@@ -390,11 +401,12 @@ export class TextControl extends Component{
 
     render = ()=>{
 
-
+        const {lang} = this.props;
+        const PLACEHOLDER = lang =='he' ? 'טקסט' : 'Text';
         return (
 
             <div className="controllers_wrapper clearfix">
-                <textarea placeholder="טקסט"
+                <textarea placeholder={PLACEHOLDER}
                           value={this.state.textValue}
                           onChange={event => this.onInputChange(event)}
                           //onKeyDown={event => this.onInputChange(event)}
@@ -414,7 +426,8 @@ function mapStateToProps(state) {
     return {
         show: state.generatorDisplay,
         canvas : state.canvas,
-        format : state.format
+        format : state.format,
+        lang : state.lang
     }
 }
 function mapDispatchToProps(dispatch){

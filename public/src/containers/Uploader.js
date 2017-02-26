@@ -53,11 +53,13 @@ export class Uploader extends Component {
 
 
     render = ()=>{
+        const {lang} = this.props;
+        const UPLOADER_TEXT = lang === 'he' ? "העלאת תמונה" : "UPLOAD";
         return (
             <div>
                 <input type="file" name="files[]" id="files" className="inputfile" multiple/>
                 <label htmlFor="files" className="upload_button">
-                   העלאת תמונה <span className="glyphicon glyphicon-upload"></span>
+                    {lang ? UPLOADER_TEXT : ''} <span className="glyphicon glyphicon-upload"/>
                 </label>
             </div>
         );
@@ -71,7 +73,8 @@ export class Uploader extends Component {
 function mapStateToProps(state) {
     return {
         textControls : state.textControls,
-        format: state.format
+        format: state.format,
+        lang : state.lang
     }
 }
 

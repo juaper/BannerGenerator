@@ -12,6 +12,8 @@ export const CHANGE_FORMAT = 'CHANGE_FORMAT';
 
 export const SET_DATA = "SET_DATA";
 
+export const SET_LANGUAGE = 'SET_LANGUAGE';
+
 export function generatorDisplayToggle(visible){
 
     return{
@@ -58,5 +60,11 @@ export function setData(data){
     }
 }
 
+export function setLanguage(lang){
+    return{
+        type : SET_LANGUAGE,
+        payload : lang
+    }
+}
 
 

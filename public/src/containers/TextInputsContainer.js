@@ -56,6 +56,12 @@ export class TextInputsContainer extends Component {
     };
 
     render = ()=> {
+        const {format, lang} = this.props;
+        const FORMAT_BUTTON_TEXT = format === 'normal' ? 'Dank Meme Format' : "Normal Meme Format";
+        const ADD_TEXT_LINE = lang === 'he' ? "הוספת שורת טקסט" : "Add a Text Line";
+        const ADD_AN_ITEM = lang === 'he' ? "הוספת פריט" : "Add an Item";
+        const CLEAR_ALL = lang === 'he' ? "נקה הכל" : "Clear All";
+        const DOWNLOAD = lang === 'he' ? "הורדה" : "Download";
 
         return (
             <div>
@@ -63,21 +69,22 @@ export class TextInputsContainer extends Component {
                     {this.props.textControls}
                 </div>
                 <div className="flex space-between">
-                    <CanvasResizer /> <GeneratorUploader />
+                    <CanvasResizer />
+                    <GeneratorUploader />
                 </div>
 
                 <div className="flex space-between">
-                    <Button text="add a text line" icon="glyphicon glyphicon-plus" click={this.addTextLine} />
-                    <Button text="Add an item" icon="glyphicon glyphicon-sunglasses" click={this.toggleItemsArea} />
+                    <Button text={ADD_TEXT_LINE} icon="glyphicon glyphicon-plus" style="auto" click={this.addTextLine} />
+                    <Button text={ADD_AN_ITEM} icon="glyphicon glyphicon-sunglasses" click={this.toggleItemsArea} />
                 </div>
 
                 {this.state.itemsAreaShown ? <ItemsArea /> : ''}
 
-                <Button text="Change Format" icon="glyphicon glyphicon-retweet" click={this.changeFormat} />
-                <Button text="Clear All" icon="glyphicon glyphicon-stop" click={this.clearCanvas} />
+                <Button text={FORMAT_BUTTON_TEXT} style="format-changer" icon="glyphicon glyphicon-retweet" click={this.changeFormat} />
+                <Button text={CLEAR_ALL} icon="glyphicon glyphicon-stop" click={this.clearCanvas} />
 
 
-                <Button text="Download" icon="glyphicon glyphicon-download-alt" style="download" click={this.download} />
+                <Button text={DOWNLOAD} icon="glyphicon glyphicon-download-alt" style="download" click={this.download} />
 
             </div>
         );
@@ -89,7 +96,8 @@ function mapStateToProps(state) {
     return {
         textControls: state.textControls,
         format: state.format,
-        canvas: state.canvas
+        canvas: state.canvas,
+        lang : state.lang
     }
 }
 

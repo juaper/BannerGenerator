@@ -70,14 +70,14 @@ export class GeneratorUploader extends Component {
     };
 
     render = ()=> {
-        const { text,icon , click } = this.props;
-
+        const { text,icon , click ,lang} = this.props;
+        const UPLOAD_TEXT = lang === 'he' ? "הוספת תמונות" : "Upload Images";
         return (
             <div className="generator-uploader-wrapper">
                 <input type="file" name="files[]" id="generator-uploader" className="inputfile" multiple/>
                 <label htmlFor="generator-uploader" className="utils_button">
                     <span className="glyphicon glyphicon-picture"/>
-                    <span> העלאת תמונות </span>
+                    <span> {UPLOAD_TEXT} </span>
                 </label>
             </div>
         );
@@ -89,7 +89,8 @@ export class GeneratorUploader extends Component {
 
 function mapStateToProps(state) {
     return {
-        canvas : state.canvas
+        canvas : state.canvas,
+        lang: state.lang
     }
 }
 

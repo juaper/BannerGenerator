@@ -12,17 +12,19 @@ export  class Canvas extends Component {
         canvas.backgroundColor = '#fff';
         this.props.setCanvas(canvas);
 
-        this.enableWindowScrollOnDrag(canvas)
+        if(window.innerWidth < 900){
+            this.disableWindowScrollOnDrag(canvas)
+        }
     };
 
-    enableWindowScrollOnDrag = (canvas)=>{
+    disableWindowScrollOnDrag = (canvas)=>{
 
-        canvas.on('mouse:down', function(options) {
+        canvas.on('mouse:down', function() {
             document.querySelector(".generator").style.overflow = 'visible';
             document.querySelector("body").style.overflow = 'visible';
 
         });
-        canvas.on('mouse:up', function(options) {
+        canvas.on('mouse:up', function() {
             document.querySelector(".generator").style.overflow = 'scroll';
             document.querySelector("body").style.overflow = 'scroll';
 

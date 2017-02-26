@@ -55,8 +55,8 @@ export class Generator extends Component {
             image.lockMovementY = isNormalFormat;
             image.lockSkewingX = true;
             image.lockSkewingY = true;
-            image.lockScalingX = true;
-            image.lockScalingY = true;
+            image.lockScalingX = isNormalFormat;
+            image.lockScalingY = isNormalFormat;
             image.lockUniScaling = isNormalFormat;
             image.hasBorders = !isNormalFormat;
             image.selectable = true;
@@ -72,10 +72,14 @@ export class Generator extends Component {
     };
 
     render= ()=>{
+        const {lang} = this.props;
+        const GENERATOR_TITLE = lang === 'he' ? 'מחולל הממים' : "Meme Generator";
         if(this.props.show){
             return(
                 <div className="generator">
-                    <h1 className="text-center generator__title">  מחולל הממים</h1>
+                    <h1 className="text-center generator__title">
+                        {lang ? GENERATOR_TITLE : ''}
+                    </h1>
                     <div className="generator__wrapper">
                         <div className="generator__canvas-wrapper col-sm-7">
                             <Canvas />
@@ -87,7 +91,7 @@ export class Generator extends Component {
                     <div className="generator__close glyphicon glyphicon-remove"  onClick={this.closeGenerator}>  </div>
                     <div className="bottom_details text-center">
                         <h4>
-                            This Meme Generator was built by Nir Ben-Yair
+                            The generator was built by <a href="mailto:nirbenya@gmail.com">  Nir Ben-Yair </a>
                         </h4>
                         <p className="text-center">
                             הפונט אשר בשימוש הינו הפונט ׳אימפקטה׳, שנתרם ע״י הטיפוגרף עודד עזר.
@@ -117,7 +121,8 @@ function mapStateToProps(state) {
         show: state.generatorDisplay,
         activeImage : state.activeImage,
         canvas : state.canvas,
-        format : state.format
+        format : state.format,
+        lang : state.lang
     }
 }
 

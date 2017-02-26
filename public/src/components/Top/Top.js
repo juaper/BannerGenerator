@@ -19,21 +19,28 @@ export class Top extends Component {
 
 
     render= ()=> {
+        const {lang} = this.props;
+        const PAGE_TITLE = lang === 'en' ? 'Meme King - Meme Generator' : "מחולל הממים - מלך הממים";
+        const CLEANSLATE = lang === 'en' ? 'Clean Board' : "לוח חלק";
         return (
             <div className="top">
                 <img src="./public/images/logo.png"/>
                 <h1 className="top__main-title">
-                    מחולל הממים - מלך הממים
+                    {lang ? PAGE_TITLE : ''}
                 </h1>
                 <Uploader/>
-                <div className="clean-slate-btn" onClick={this.createCleanSlate}> לוח חלק</div>
+                <div className="clean-slate-btn" onClick={this.createCleanSlate}> {lang ? CLEANSLATE : ''}</div>
             </div>
         );
     }
 }
-
+function mapStateToProps(state) {
+    return {
+       lang : state.lang
+    }
+}
 function mapDispatchToProps(dispatch){
     return bindActionCreators({ generatorDisplayToggle , changeFormat}, dispatch)
 }
 
-export default connect(null,mapDispatchToProps)(Top)
+export default connect(mapStateToProps,mapDispatchToProps)(Top)

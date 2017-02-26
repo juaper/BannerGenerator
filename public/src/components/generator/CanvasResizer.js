@@ -33,10 +33,11 @@ export class CanvasResizer extends Component {
     };
 
     render = ()=> {
-        const { canvas } = this.props;
+        const { canvas, lang } = this.props;
+        const RESIZER_TEXT = lang === 'he' ? "שינוי גודל הלוח" : "Resize Canvas";
         return (
             <div className="resizer-wrapper">
-                <h5 className="text-center"> Resize Canvas </h5>
+                <h5 className="text-center"> {RESIZER_TEXT} </h5>
                 <input type="range"
                        name="points" min='0'
                        value={this.state.canvasHeight}
@@ -50,7 +51,8 @@ export class CanvasResizer extends Component {
 
 function mapStateToProps(state) {
     return {
-        canvas: state.canvas
+        canvas: state.canvas,
+        lang : state.lang
     }
 }
 
