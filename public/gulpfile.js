@@ -11,6 +11,11 @@ const imageminPngquant = require('imagemin-pngquant');
 const imageminJpegRecompress = require('imagemin-jpeg-recompress');
 const sizeOf = require('image-size');
 const imageResize = require('gulp-image-resize-ar');
+const autoprefixer = require('gulp-autoprefixer');
+const cleanCSS = require('gulp-clean-css');
+const webpack = require('gulp-webpack');
+
+
 /** Import data files **/
 
 /** production environment **/
@@ -52,6 +57,23 @@ gulp.task('opt-memes', function () {
                           }))
         .pipe(gulp.dest('./public/build-memes/meme-thumbs'))
 });
+
+
+gulp.task('build', function () {
+     gulp.src('./style/style.css', {base : './'})
+         .pipe(autoprefixer({
+                                browsers: ['last 2 versions', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'],
+                                cascade: false
+                            }))
+         .pipe(cleanCSS({compatibility: 'ie8'}))
+         .pipe(gulp.dest('./'))
+
+    gulp.src('src/entry.js')
+        .pipe(webpack(require('./webpack.config.js')))
+        .pipe(gulp.dest('./'));
+
+});
+
 
 
 

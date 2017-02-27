@@ -24,7 +24,8 @@ export class TextInputsContainer extends Component {
     };
 
     changeFormat = ()=> {
-        const { format, changeFormat, modifyTextInputsAmount } = this.props;
+        const { format, changeFormat, modifyTextInputsAmount, canvas } = this.props;
+        canvas.clear();
         modifyTextInputsAmount('reset');
         format === 'normal' ? changeFormat('dank') : changeFormat('normal');
     };

@@ -24,6 +24,8 @@ export class TextControl extends Component{
             strokeWidth : '0',
             textAlign : 'center'
         };
+
+
         const strokeStyle = {
             strokeLineJoin: "round",
             stroke: "#000",
@@ -65,7 +67,8 @@ export class TextControl extends Component{
 
     componentWillReceiveProps = (nextProps)=>{
         if(this.props.format !== nextProps.format){
-            this.setState({textValue : ''})
+            this.setState({textValue : ''});
+            this.setState({alreadyOnCanvas : false})
         }
     };
 
@@ -90,9 +93,10 @@ export class TextControl extends Component{
         textBoxes.forEach((textBox) =>{
             const isStroke = parseInt(textBox.strokeWidth);
             /** DEFAULT STYLES FOR ALL TEXT BOXES**/
-            textBox.width = canvas.width * 0.975;
+            textBox.width = canvas.width * 0.975 || 100;
+            console.log('fsdfsdf',textBox.width)
             textBox.left = (canvas.width) / 100;
-            textBox.fontSize = this.props.newFormat ? canvas.width / 15 : canvas.width / 10;
+            textBox.fontSize =/* this.props.newFormat ? canvas.width / 15 :*/ canvas.width / 10;
             textBox.top = this.getTextPosition(textBox,this.state.position);
             textBox.strokeWidth = isStroke ? textBox.fontSize / 6 : '0';
             canvas.renderAll();
@@ -101,13 +105,12 @@ export class TextControl extends Component{
     };
 
     styleTextAccordingToNewFormat = (...textBoxes)=>{
-
+        const {canvas} = this.props;
         textBoxes.forEach((textBox)=>{
             const isStroke = parseInt(textBox.strokeWidth);
             textBox.fill = '#000';
             textBox.fontFamily = 'Helvetica Neue, Open Sans Hebrew';
             textBox.fontWeight = '200';
-
             textBox.opacity=  isStroke ? '0' : '1';
             textBox.fontSize = 33;
             textBox.lineHeight = 1.3;
