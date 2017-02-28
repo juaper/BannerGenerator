@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { generatorDisplayToggle, activeImage } from '../../actions/index';
-import LazyLoad from 'react-lazy-load';
+//import LazyLoad from 'react-lazy-load';
+import LazyLoad from 'react-lazyload';
+
 
 export class MemeThumb extends Component {
     constructor(props){
