@@ -15,7 +15,7 @@ export default class MemeSection extends Component {
         return this.state.visible ? <ThumbsGallery data={this.props.data} /> : '';
     };
 
-    toggleSection = (event)=>{
+    toggleSection = ()=>{
         this.setState({visible : !this.state.visible})
     };
 
