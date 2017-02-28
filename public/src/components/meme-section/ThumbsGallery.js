@@ -9,9 +9,9 @@ export default class ThumbsGallery extends Component {
 
     renderMemes = ()=>{
         const { data } = this.props;
-        console.log(data,'thumbs gallery')
+        let key = Math.random();
         const placeHolder =  <MemeThumb key='soon' image='soon' />;
-        return data.map(meme => <MemeThumb key={meme} image={meme} />);
+        return data.map(meme => <MemeThumb key={++key} image={meme} />);
 
     };
 
