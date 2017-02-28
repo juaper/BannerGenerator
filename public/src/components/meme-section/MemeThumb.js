@@ -25,7 +25,7 @@ export class MemeThumb extends Component {
         const src= this.getImageSrc("meme-thumbs");
         return (
             <div className="meme-thumb" src={src} onClick={this.activateGenerator}>
-                <LazyLoad  offset={window.innerWidth > 767 ? 100 : 300}>
+                <LazyLoad  offset={window.innerWidth > 767 ? 100 : 300} height={window.innerWidth < 767 ? 100 : 160}>
                     <img src={src} alt={src} className="meme-thumb__img" />
                 </LazyLoad>
                 <div className="meme-thumb__overlay"></div>
