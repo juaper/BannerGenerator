@@ -35,7 +35,6 @@ export class TextInputsContainer extends Component {
     };
 
     download = (event)=> {
-
         const canvas = this.props.canvas;
         canvas.deactivateAll().renderAll();
         const clickedElement = event.target.tagName === 'SPAN' ? event.target.parentNode : event.target;
@@ -51,6 +50,8 @@ export class TextInputsContainer extends Component {
         canvas.setZoom(1);
 
     };
+
+
 
     clearCanvas = ()=> {
         this.props.canvas.clear();

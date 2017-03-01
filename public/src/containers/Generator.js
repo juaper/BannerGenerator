@@ -43,7 +43,8 @@ export class Generator extends Component {
               isNormalFormat = format === 'normal',
               spaceToADDForDankFormatStyle = window.innerWidth < 767 ? 100 : 150,
               canvasContainerWidth = document.querySelector('.generator__canvas-wrapper').offsetWidth - 30;
-                const MOBILE_DANK_CANVAS_SIZE = window.innerWidth < 767 ? canvasContainerWidth : 400
+        const MOBILE_DANK_CANVAS_SIZE = window.innerWidth < 767 ? canvasContainerWidth : 400;
+        const self = this;
         canvas.clear();
         fabric.Image.fromURL(imageUrl, function (image) {
             image = isNormalFormat  ? setHeightAndWidth(image) : setHeightAndWidthAccordingToNewFormat(image) ;
@@ -60,7 +61,35 @@ export class Generator extends Component {
             image.lockUniScaling = isNormalFormat;
             image.hasBorders = !isNormalFormat;
             image.selectable = true;
+            self.addWaterMark();
         });
+
+    };
+
+    addWaterMark = ()=>{
+        console.log('add');
+        const canvas = this.props.canvas;
+        fabric.Image.fromURL('./public/images/watermark.png', function (watermark) {
+            canvas.add(watermark);
+            watermark.lockMovementX = true;
+            watermark.lockMovementY = true;
+            const mobilePosition = {
+                left: canvas.width - 42.9,
+                top: canvas.height - 2.379,
+                width: 42.9, height: 2.379,
+                opacity: 0.7
+            };
+            const desktopPosition = {
+                left: canvas.width - 99,
+                top: canvas.height - 5.5,
+                width: 99, height: 5.5,
+                opacity: 0.7
+            };
+            const currentNeededPosition = window.innerWidth <= 767 ? mobilePosition : desktopPosition;
+            watermark.set(currentNeededPosition);
+            canvas.bringToFront(watermark);
+            canvas.renderAll();
+        })
     };
 
 
