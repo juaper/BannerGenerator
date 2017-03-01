@@ -1,5 +1,5 @@
 export const setHeightAndWidth = (picture, wantedMaxHeight, wantedMaxWidth)=> {
-    const SPACE_TO_RECUDE_FROM_CANVAS = window.innerWidth < 767 ? 30 : 120;
+    const SPACE_TO_RECUDE_FROM_CANVAS = window.innerWidth < 767 ? 30 : 50;
     const container = document.querySelector('.generator__canvas-wrapper');
     var maxWidth = wantedMaxWidth || container.offsetWidth - SPACE_TO_RECUDE_FROM_CANVAS; // Max width for the image
     var maxHeight = wantedMaxHeight || 500;    // Max height for the image
