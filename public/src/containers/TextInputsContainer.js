@@ -48,7 +48,22 @@ export class TextInputsContainer extends Component {
         //!* need to set back canvas dimensions *
         canvas.setWidth(canvas.getWidth() / zoom).setHeight(canvas.getHeight() / zoom);
         canvas.setZoom(1);
+        this.handleGoogleAnalytics()
+    };
 
+
+    handleGoogleAnalytics = ()=>{
+        const textAreas = document.getElementsByTagName('TEXTAREA');
+        const imagePath = this.props.activeImage.split('/');
+        const imageName = imagePath[imagePath.length - 1].replace('jpg','');
+        console.log(textAreas);
+        let text = `${imageName} : ${textAreas[0].value} ${textAreas[1].value}`;
+        ga('send', {
+            hitType: 'event',
+            eventCategory: 'Meme Downloaded',
+            eventAction: text,
+            eventLabel: 'Meme Downloaded'
+        });
     };
 
 
@@ -110,7 +125,9 @@ function mapStateToProps(state) {
         textControls: state.textControls,
         format: state.format,
         canvas: state.canvas,
-        lang : state.lang
+        lang : state.lang,
+        activeImage : state.activeImage,
+
     }
 }
 
