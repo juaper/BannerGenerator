@@ -56,12 +56,11 @@ export class TextInputsContainer extends Component {
         const textAreas = document.getElementsByTagName('TEXTAREA');
         const imagePath = this.props.activeImage.split('/');
         const imageName = imagePath[imagePath.length - 1].replace('jpg','');
-        console.log(textAreas);
         let text = `${imageName} : ${textAreas[0].value} ${textAreas[1].value}`;
         ga('send', {
             hitType: 'event',
             eventCategory: 'Meme Downloaded',
-            eventAction: text,
+            eventAction: this.props.format + " " + text,
             eventLabel: 'Meme Downloaded'
         });
     };
