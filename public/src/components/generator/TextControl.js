@@ -272,6 +272,7 @@ export class TextControl extends Component{
         const{canvas} = this.props;
         fillTextBox.textAlign = 'left';
         strokeTextBox.textAlign = 'left';
+        document.getElementById('c').dir='ltr';
         canvas.renderAll();
     };
     alignTextRight = ()=>{
@@ -279,6 +280,7 @@ export class TextControl extends Component{
         const{canvas} = this.props;
         fillTextBox.textAlign = 'right';
         strokeTextBox.textAlign = 'right';
+        document.getElementById('c').dir='rtl';
         canvas.renderAll();
     };
     alignTextCenter = ()=>{
@@ -286,6 +288,7 @@ export class TextControl extends Component{
         const{canvas} = this.props;
         fillTextBox.textAlign = 'center';
         strokeTextBox.textAlign = 'center';
+        document.getElementById('c').dir='rtl';
         canvas.renderAll();
     };
 

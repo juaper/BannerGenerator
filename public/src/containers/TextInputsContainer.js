@@ -121,12 +121,11 @@ export class TextInputsContainer extends Component {
 
 function mapStateToProps(state) {
     return {
-        textControls: state.textControls,
-        format: state.format,
-        canvas: state.canvas,
+        textControls : state.textControls,
+        format : state.format,
+        canvas : state.canvas,
         lang : state.lang,
         activeImage : state.activeImage,
-
     }
 }
 

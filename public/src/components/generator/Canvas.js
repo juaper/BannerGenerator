@@ -34,7 +34,7 @@ export  class Canvas extends Component {
     render() {
         return (
             <div>
-                <canvas id='c' />
+                <canvas id='c' dir="rtl" />
             </div>
         );
     }
