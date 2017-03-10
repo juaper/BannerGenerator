@@ -2,7 +2,9 @@ const fs = require('fs');
 const recursive = require('recursive-readdir');
 const path = require('path');
 
-const directories = getDirectories('./public/public/build-memes/memes');
+
+
+const directories = getDirectories('./public/public/memes');
 
 // perform the script on every file inside the sub directory
 directories.forEach((directory) => {
@@ -21,6 +23,6 @@ function getDirectories(srcPath) {
 
 //loop through the files inside the directory and execute the changeDimension Method on each one
 function getFileList(directory) {
-    return fs.readdirSync(`./public/public/build-memes/memes/${directory}/`);
+    return fs.readdirSync(`./public/public/memes/${directory}/`);
 
 }
