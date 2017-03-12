@@ -11,6 +11,7 @@ const imageResize = require('gulp-image-resize-ar');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const webpack = require('gulp-webpack');
+const debug = require('gulp-debug');
 
 
 

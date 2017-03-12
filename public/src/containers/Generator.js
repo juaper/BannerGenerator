@@ -69,21 +69,22 @@ export class Generator extends Component {
     addWaterMark = ()=>{
         console.log('add');
         const canvas = this.props.canvas;
-        fabric.Image.fromURL('./public/images/watermark.png', function (watermark) {
+        const waterMark = window.innerWidth < 767  ? 'watermark-mobile' : 'watermark-desktop';
+        fabric.Image.fromURL(`./public/images/${waterMark}.jpg`, function (watermark) {
             canvas.add(watermark);
             watermark.lockMovementX = true;
             watermark.lockMovementY = true;
             const mobilePosition = {
-                left: canvas.width - 42.9,
-                top: canvas.height - 2.379,
-                width: 42.9, height: 2.379,
-                opacity: 0.7
+                left: 0,
+                top: canvas.height - 6,
+                width: 50, height: 6,
+                opacity: 0.5
             };
             const desktopPosition = {
-                left: canvas.width - 99,
-                top: canvas.height - 5.5,
-                width: 99, height: 5.5,
-                opacity: 0.7
+                left: 0,
+                top: canvas.height - 12,
+                width: 99, height: 12,
+                opacity: 0.5
             };
             const currentNeededPosition = window.innerWidth <= 767 ? mobilePosition : desktopPosition;
             watermark.set(currentNeededPosition);
