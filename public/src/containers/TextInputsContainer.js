@@ -56,7 +56,7 @@ export class TextInputsContainer extends Component {
     handleSendingToServer = ()=>{
         //SAVING THE CANVAS TO THE SERVER
         const {canvas} = this.props;
-        var fabricCanvas = document.getElementById('c');  //real ID here
+       /* var fabricCanvas = document.getElementById('c');  //real ID here
         var scaledCanvas = document.createElement('canvas');    //off-screen canvas
 
         scaledCanvas.width = canvas.width * 0.4;  //size of new canvas, make sure they are proportional
@@ -65,9 +65,9 @@ export class TextInputsContainer extends Component {
         // scale original image to new canvas
         var ctx = scaledCanvas.getContext('2d');
         ctx.drawImage(fabricCanvas, 0, 0, scaledCanvas.width, scaledCanvas.height);
-
+*/
         //converting the
-        var image = scaledCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
         axios.post('http://www.memeking.co.il/save', {
             data : image
         })
