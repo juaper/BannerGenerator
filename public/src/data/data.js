@@ -13,6 +13,8 @@ import REALITY from './reality';
 import TV_ABROAD from './tv_abroad';
 import CLASSIC from './classic'
 import ANIMALS from './animals';
+import MEDIA from './media';
+import PARLAMENT from './parlament';
 
 export default [
     {type: "dank memes", data : DANK},
@@ -21,6 +23,7 @@ export default [
     {type: "TV shows", data : TV_ABROAD},
     {type: "Mashups", data : MASHUPS},
     {type: "ממים ישראליים", data : ISRAELI},
+    {type: "הפרלמנט", data : PARLAMENT},
     {type: "סדרות ישראליות", data : ISRAELI_TV},
     {type: "חיות", data : ANIMALS},
     {type: "ארץ נהדרת", data : ERETZ_NEHEDERET},
@@ -29,6 +32,7 @@ export default [
     {type: "כללי", data : GENERAL},
     {type: "אסי וגורי", data : ASI_GURI},
     {type: "גולסטאר", data : GOALSTAR},
+    {type: "מדיה", data : MEDIA},
     {type: "היהודים באים", data : JEWS},
 
 ]
