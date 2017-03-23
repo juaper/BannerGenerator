@@ -2,8 +2,6 @@ const s3Uploader =   (file)=>{
     /*
     var AWS = require('aws-sdk');
     AWS.config.update({
-                          accessKeyId: "AKIAIDKPD6X7W5SH6BUQ",
-                          secretAccessKey: "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",
 
                       });
     var s3 = new AWS.S3();
