@@ -11,7 +11,6 @@ const s3Uploader =   (file)=>{
 
     var myBucket = 'memeking.meme-storage';
 
-    var myKey = 'AKIAI5ZDHFRHTTTETMJA';
 
     s3.putObject({
                      Bucket: myBucket,
