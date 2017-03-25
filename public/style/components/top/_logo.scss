@@ -2,7 +2,7 @@
 
 
   img{
-    max-width:150px;
+    max-width:120px;
     height: auto;
     display: block;
     margin : 0 auto;
@@ -15,10 +15,17 @@
     color: $mainColor;
     text-align:center;
     font-size: 5rem;
-
+    margin-top:15px;
+    margin-bottom:10px;
     @include mobile-medium{
       font-size:26px;
-      margin-bottom:50px;
     }
+  }
+
+  h2{
+    color :$mainColor;
+    text-align:center;
+    margin-bottom:50px;
+
   }
 }

@@ -50,23 +50,13 @@ export class TextInputsContainer extends Component {
         canvas.setWidth(canvas.getWidth() / zoom).setHeight(canvas.getHeight() / zoom);
         canvas.setZoom(1);
         this.handleGoogleAnalytics();
-        this.handleSendingToServer();
+        //this.handleSendingToServer();
     };
 
     handleSendingToServer = ()=>{
         //SAVING THE CANVAS TO THE SERVER
         const {canvas} = this.props;
-       /* var fabricCanvas = document.getElementById('c');  //real ID here
-        var scaledCanvas = document.createElement('canvas');    //off-screen canvas
 
-        scaledCanvas.width = canvas.width * 0.4;  //size of new canvas, make sure they are proportional
-        scaledCanvas.height = canvas.height * 0.4; //compared to original canvas
-
-        // scale original image to new canvas
-        var ctx = scaledCanvas.getContext('2d');
-        ctx.drawImage(fabricCanvas, 0, 0, scaledCanvas.width, scaledCanvas.height);
-*/
-        //converting the
         var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
         axios.post('http://www.memeking.co.il/save', {
             data : image

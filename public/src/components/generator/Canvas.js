@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {setCanvas} from '../../actions/index';
+
+
 export  class Canvas extends Component {
     constructor(props){
         super(props);
-
     }
+
+
     componentDidMount = ()=>{
         const canvas = new fabric.Canvas('c',{allowTouchScrolling: true });
         canvas.backgroundColor = '#fff';
@@ -31,7 +34,7 @@ export  class Canvas extends Component {
         });
     }
 
-    render() {
+    render(){
         return (
             <div>
                 <canvas id='c' dir="rtl" />

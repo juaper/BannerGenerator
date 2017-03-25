@@ -1,18 +1,55 @@
-.meme-section-title{
+
+
+h2.meme-section-title{
   text-align:center;
-  color: $mainColor;
+  color: white;
   text-transform: capitalize;
   cursor:pointer;
   font-size:4rem;
-  padding: 20px;
-  margin-bottom:30px;
-  &:hover{
-    color: darken($mainColor, 10%)
+  padding: 40px;
+  margin : 0;
+  display: flex;
+  justify-content: center;
+
+  img{
+    height:70px;
+    width: 70px;
+    border-radius: 200px;
+    object-fit:cover;
+
+    @include mobile-medium{
+      height: 50px;
+      width: 50px;
+    }
   }
+  .text{
+    width:300px;
+    display:flex;
+    align-items:center;
+    text-align:left;
+    margin-right: 50px;
+    justify-content: flex-end;
+  }
+
 
   @include mobile-medium{
     font-size:25px;
     padding:15px;
   }
 
+}
+
+$colors: #c1e0f5 #fbaea8 darken(#b8f5d2, 5%) darken(peachpuff, 5%) #A87383 #42b4d6 #DE9B88 lighten(#42b4d6, 1%) darken(#fbaea8 , 1%)
+darken(#c1e0f5, 1%) darken(#b8f5d2, 1%) darken(peachpuff, 1%) darken( #42b4d6, 1%) darken(#DE9B88, 1%) darken(#A87383, 1%) darken(#A4C7B7, 1%) darken(peachpuff, 2%);
+
+.memes-container {
+  @each $color in $colors {
+    $i: index($colors, $color);
+    &:nth-of-type(#{$i}) {
+      background: $color;
+      &:hover{
+        background: darken($color, 5%);
+      }
+    }
+  }
 }

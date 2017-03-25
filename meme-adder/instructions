@@ -1,0 +1,44 @@
+
+//ONE TIME
+___________
+
+
+ in meme-adder : run  npm start on localhost:3000
+
+ in Gen : run server.js file runs on 8080.
+
+ in meme-adder : run MemeAdder.js 'server' on localhost 9000
+
+
+
+ ** if new memes needs to be added **
+  - - - - - - - - - - - - - - - - - -
+ add the memes to the folders
+
+ in the UI click reset
+
+
+
+// REPEAT
+__________
+
+
+ in meme-adder : run MemeAdder.js 'server' on localhost 9000
+
+ choose meme category
+
+ edit memes
+
+ click save
+
+ in meme-adder : run MemeAdder.js 'server' on localhost 9000
+
+ >> repeat
+
+
+ // IN THE END
+ __________
+
+ in Gen : run gulp build
+ in Gen : run gulp opt-memes
+

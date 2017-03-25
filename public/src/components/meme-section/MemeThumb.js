@@ -18,7 +18,7 @@ export class MemeThumb extends Component {
     };
 
     getImageSrc = (type)=>{
-       return `./public/build-memes/${type}/${this.props.image}`
+       return `./public/build-memes/${type}/${this.props.image.name }`
     };
 
 
@@ -30,7 +30,13 @@ export class MemeThumb extends Component {
                 {/*<LazyLoad  offset={window.innerWidth > 767 ? 100 : 300} height={window.innerWidth < 767 ? 100 : 160}>*/}
                     <img src={src} alt={src} className="meme-thumb__img" />
                 {/*</LazyLoad>*/}
-                <div className="meme-thumb__overlay"></div>
+                <div className="meme-thumb__overlay">
+                    <p className="meme-thumb__description">
+                        - מחולל הממים -
+                        <br/>
+                           {image.description}
+                    </p>
+                </div>
             </div>
         );
     }
