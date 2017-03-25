@@ -26,6 +26,9 @@
     color :$mainColor;
     text-align:center;
     margin-bottom:50px;
+    @include mobile-medium{
+      padding: 10px 20px;
+    }
 
   }
 }
