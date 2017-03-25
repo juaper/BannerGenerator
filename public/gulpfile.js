@@ -23,7 +23,7 @@ const JPG_QUALITY = 'veryhigh'; //low, medium, high , veryhigh
 //this task activates the quality optimization ('img-quality-opt')
 // and when its finished its calling the resize function "imageResizer()"
 gulp.task('opt-memes', function () {
-    return gulp.src('./public/memes/**/*')
+    return gulp.src('./public/memes/**/*.{jpg,png,PNG,JPG,jpeg}')
         .pipe(imagemin([
                            imageminJpegRecompress({quality: JPG_QUALITY}),
                            imageminPngquant({quality: PNG_QUALITY}),

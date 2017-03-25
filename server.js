@@ -84,7 +84,7 @@ app.get('/', function (req, res) {
 
 
 
-app.set( 'port', ( process.env.PORT || 3000 ));
+app.set( 'port', ( process.env.PORT || 8080 ));
 
 // Start node server
 app.listen( app.get( 'port' ), function() {

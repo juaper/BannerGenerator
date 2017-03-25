@@ -16,7 +16,7 @@ import ANIMALS from './animals';
 import MEDIA from './media';
 import PARLAMENT from './parlament';
 
-export default [
+module.exports =   [
     {type: "dank memes", data : DANK},
     {type: "Classic Memes", data : CLASSIC},
     {type: "Pop culture", data : POP},
@@ -34,5 +34,4 @@ export default [
     {type: "גולסטאר", data : GOALSTAR},
     {type: "מדיה", data : MEDIA},
     {type: "היהודים באים", data : JEWS},
-
-]
+];

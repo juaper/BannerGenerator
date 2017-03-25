@@ -27,11 +27,11 @@ export default class BtnScrollToTop extends Component {
         let currentPosition = window.pageYOffset;
         const interval = setInterval(()=>{
             currentPosition-=20;
-            window.scrollTo(200, currentPosition)
+            window.scrollTo(100, currentPosition)
             if(currentPosition < 0){
                 clearInterval(interval);
             }
-        },15)
+        },5)
 
     };
 

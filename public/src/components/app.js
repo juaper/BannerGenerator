@@ -7,6 +7,7 @@ import Generator from '../containers/Generator';
 import Top from './Top/Top';
 import BtnScrollToTop from './BtnScrollToTop';
 import axios from 'axios';
+import Footer from './Footer';
 export class App extends Component {
 
     componentWillMount = ()=>{
@@ -26,6 +27,7 @@ export class App extends Component {
       <div>
         <Top/>
         <MemeSectionsContainer/>
+          <Footer/>
         <Generator/>
         <BtnScrollToTop />
       </div>

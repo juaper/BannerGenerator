@@ -59,7 +59,8 @@ export class Uploader extends Component {
             <div>
                 <input type="file" name="files[]" id="files" className="inputfile" multiple/>
                 <label htmlFor="files" className="upload_button">
-                    {lang ? UPLOADER_TEXT : ''} <span className="glyphicon glyphicon-upload"/>
+                    <span className="text">{lang ? UPLOADER_TEXT : ''}</span>
+                    <span className="glyphicon glyphicon-cloud-upload"/>
                 </label>
             </div>
         );
