@@ -4,12 +4,14 @@ import { bindActionCreators } from 'redux';
 import { generatorDisplayToggle, changeFormat } from '../../actions/index';
 import Uploader from '../../containers/Uploader';
 import Searcher from '../../containers/Searcher';
+import axios from 'axios';
 export class Top extends Component {
 
     constructor(props) {
         super(props);
         this.state = {}
     }
+
 
     createCleanSlate = ()=> {
         this.props.changeFormat('clean');

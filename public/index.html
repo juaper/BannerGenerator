@@ -24,9 +24,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" async>
     <link rel="stylesheet" href="./style/style.css" async>
     <link rel="icon" type="image/png" href="./public/favicon.ico" />
-    <!--
-        <script src="http://g.hazfalafel.com/libraries/fabric.js-1.5.0.with_Textbox.js"></script>
-    -->
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyA-f4RHZw205unjWdY4jvh_tJ7E1ZVPYKQ",
+        authDomain: "memeking-80290.firebaseapp.com",
+        databaseURL: "https://memeking-80290.firebaseio.com",
+        storageBucket: "memeking-80290.appspot.com",
+        messagingSenderId: "243226751545"
+      };
+      firebase.initializeApp(config);
+    </script>
     <script src="./src/modules/fabric.js"></script>
 
   </head>

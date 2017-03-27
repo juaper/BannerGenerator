@@ -7,7 +7,7 @@ export default class MemeSection extends Component {
         super(props);
 
         this.state = {
-            visible : false
+            visible : props.open
         }
     }
 

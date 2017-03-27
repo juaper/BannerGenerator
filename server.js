@@ -7,6 +7,7 @@ const multer  = require('multer');
 const fotology = require("fotology");
 const memeIdentifire = Math.random();
 const s3Uploader = require('./s3');
+const fireBase = require('./firebase');
 
 
 app.use(bodyParser.urlencoded({
@@ -37,7 +38,7 @@ app.use(urlencodedParser);
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -82,9 +83,37 @@ app.get('/', function (req, res) {
 });
 
 
+app.post('/write-to-firebase', function (req, res) {
+    fireBase.write(req.body.data);
+});
+app.get('/get-popular-memes', function (req, res) {
+
+    const promise = new Promise((resolve,reject)=>{
+
+        resolve(fireBase.getData(''))
+
+    }).then((data)=>  {
+        const sortedData = getObjectAsArray(data).sort((a,b) => b.rating - a.rating).slice(0,16);
+        res.send(sortedData);
+
+    });
+
+    const getObjectAsArray = (obj)=>{
+        let arr = [];
+        for (var prop in obj){
+            arr.push(obj[prop]);
+        }
+
+        return arr;
+    }
+
+});
 
 
-app.set( 'port', ( process.env.PORT || 8080 ));
+
+
+
+app.set( 'port', ( process.env.PORT || 3000 ));
 
 // Start node server
 app.listen( app.get( 'port' ), function() {
