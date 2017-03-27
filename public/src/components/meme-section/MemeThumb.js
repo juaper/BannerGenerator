@@ -44,6 +44,7 @@ export class MemeThumb extends Component {
                     <p className="meme-thumb__description">
                         - מחולל הממים -
                         <br/>
+                        {image.rating || ''}
                         {image.description}
                     </p>
                 </div>
