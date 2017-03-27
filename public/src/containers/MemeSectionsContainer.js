@@ -19,7 +19,7 @@ export class MemeSectionsContainer extends Component {
                     <MemeSection title={section.type} open={false} type={section.type} data={section.data} />
                 )
             });
-            const popularSection = <MemeSection open={true} title="טופ 16" type="popular" data={response.data} />;
+            const popularSection = <MemeSection open={false} title="טופ 16" type="popular" data={response.data} />;
             self.setState({ sections: [popularSection, ...sections] })
 
         })

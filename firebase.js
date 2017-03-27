@@ -33,7 +33,6 @@ const FireBase = (()=>{
     const getDataFromDataBase = (key)=> {
 
         return database.ref('/popular/' + key || '').once('value').then(function(snapshot) {
-            console.log(snapshot.val(), 'fb file');
             return snapshot.val();
         });
     };
