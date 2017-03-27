@@ -20,10 +20,12 @@ const JPG_QUALITY = 'veryhigh'; //low, medium, high , veryhigh
 
 /*** TASKS ***/
 
+const FOLDER = 'general';
+
 //this task activates the quality optimization ('img-quality-opt')
 // and when its finished its calling the resize function "imageResizer()"
 gulp.task('opt-memes', function () {
-    return gulp.src('./public/memes/**/*.{jpg,png,PNG,JPG,jpeg}')
+    return gulp.src(`./public/memes/${FOLDER}/*.{jpg,png,PNG,JPG,jpeg}`)
         .pipe(imagemin([
                            imageminJpegRecompress({quality: JPG_QUALITY}),
                            imageminPngquant({quality: PNG_QUALITY}),
@@ -34,13 +36,13 @@ gulp.task('opt-memes', function () {
                               crop: false,
                               upscale: false
                           }))
-        .pipe(gulp.dest('./public/build-memes/memes'))
+        .pipe(gulp.dest(`./public/build-memes/memes${FOLDER === '**' ? '' : `/${FOLDER}`}`))
         .pipe(imageResize({
                               width:  200,
                               crop: false,
                               upscale: false
                           }))
-        .pipe(gulp.dest('./public/build-memes/meme-thumbs'))
+        .pipe(gulp.dest(`./public/build-memes/meme-thumbs${FOLDER === '**' ? '' : `/${FOLDER}`}`))
 });
 
 

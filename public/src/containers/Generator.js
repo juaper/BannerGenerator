@@ -39,10 +39,10 @@ export class Generator extends Component {
 
     addImage = (canvas)=>{
         const imageUrl = this.props.activeImage,
-              {format} = this.props,
-              isNormalFormat = format === 'normal',
-              spaceToADDForDankFormatStyle = window.innerWidth < 767 ? 100 : 150,
-              canvasContainerWidth = document.querySelector('.generator__canvas-wrapper').offsetWidth - 30;
+            {format} = this.props,
+            isNormalFormat = format === 'normal',
+            spaceToADDForDankFormatStyle = window.innerWidth < 767 ? 100 : 150,
+            canvasContainerWidth = document.querySelector('.generator__canvas-wrapper').offsetWidth - 30;
         const MOBILE_DANK_CANVAS_SIZE = window.innerWidth < 767 ? canvasContainerWidth : 400;
         const self = this;
         canvas.clear();
