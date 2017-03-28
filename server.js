@@ -93,7 +93,7 @@ app.get('/get-popular-memes', function (req, res) {
         resolve(fireBase.getData(''))
 
     }).then((data)=>  {
-        const sortedData = getObjectAsArray(data).sort((a,b) => b.rating - a.rating).slice(0,16);
+        const sortedData = getObjectAsArray(data).sort((a,b) => b.rating - a.rating).slice(0,24);
         res.send(sortedData);
 
     });
