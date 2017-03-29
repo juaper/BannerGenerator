@@ -26,10 +26,10 @@ export class Top extends Component {
         // window.scroll(0,findPos(document.getElementById("meme-sections-container")));
         const wantedPos = findPos(document.getElementById("meme-sections-container"));
         let currentPosition = window.pageYOffset;
-        const interval = setInterval(()=> {
+        const interval = window.setInterval(()=> {
             currentPosition += 20;
             if (currentPosition >= wantedPos) {
-                clearInteverl(interval);
+                window.clearInterval(interval);
             }
             window.scrollTo(200, currentPosition)
 

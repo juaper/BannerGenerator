@@ -10,26 +10,34 @@ export class MemeSectionsContainer extends Component {
 
 
     componentDidMount = ()=> {
+        this.updateSections();
+        console.log('update sections')
+    };
+
+    updateSections = ()=> {
         const { data } = this.props;
+
+        const sections = data.map((section)=> {
+            return (
+                <MemeSection title={section.type} open={false} type={section.type} data={section.data} />
+            )
+        });
+        this.setState({ sections: sections })
+        this.getPopularSection();
+    };
+
+    getPopularSection = ()=> {
         const self = this;
-
         axios.get('./get-popular-memes').then((response)=> {
-            const sections = data.map((section)=> {
-                return (
-                    <MemeSection title={section.type} open={false} type={section.type} data={section.data} />
-                )
-            });
-            const popularSection = <MemeSection open={false} title="טופ 24" type="popular" data={response.data} />;
-            self.setState({ sections: [popularSection, ...sections] })
+            const popularSection = (<MemeSection open={false} title="טופ 24" type="popular" data={response.data} />);
+            self.setState({ sections: [popularSection, ...self.state.sections] })
 
-        })
-
+        });
 
     };
 
 
     render = ()=> {
-
         return (
             <div id="meme-sections-container">
                 {this.state.sections}

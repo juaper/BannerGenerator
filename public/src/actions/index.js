@@ -14,11 +14,22 @@ export const SET_DATA = "SET_DATA";
 
 export const SET_LANGUAGE = 'SET_LANGUAGE';
 
+export const SET_DESCRIPTION = 'SET_DESCRIPTION'
+
+
 export function generatorDisplayToggle(visible){
 
     return{
         type: GENERATOR_DISPLAY,
         payload : visible
+    }
+}
+
+export function setDescription(description){
+
+    return{
+        type: SET_DESCRIPTION,
+        payload : description
     }
 }
 

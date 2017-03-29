@@ -50,8 +50,20 @@ export class TextInputsContainer extends Component {
         canvas.setWidth(canvas.getWidth() / zoom).setHeight(canvas.getHeight() / zoom);
         canvas.setZoom(1);
         this.handleGoogleAnalytics();
+        this.updateMemeRating();
         //this.handleSendingToServer();
     };
+
+
+    updateMemeRating = ()=>{
+        const {activeImage,description} = this.props;
+        console.log(description)
+        axios.post('./update-popular-meme-rating',{
+            data : activeImage,
+            description : description
+        })
+    };
+
 
     handleSendingToServer = ()=>{
         //SAVING THE CANVAS TO THE SERVER
@@ -144,6 +156,7 @@ function mapStateToProps(state) {
         canvas : state.canvas,
         lang : state.lang,
         activeImage : state.activeImage,
+        description : state.description
     }
 }
 

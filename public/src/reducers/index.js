@@ -6,6 +6,7 @@ import SetCanvas from './reducer_canvas';
 import setData from './reducer_data';
 import ChangeFormat from './reducer_meme-format';
 import setLanguage from './reducer_language';
+import description from './reducer_description';
 const rootReducer = combineReducers({
       generatorDisplay : GeneratorReducer,
       textControls: TextControlReducer,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
       canvas : SetCanvas,
       format : ChangeFormat,
       data : setData,
-      lang : setLanguage
+      lang : setLanguage,
+      description : description
 });
 
 export default rootReducer;
