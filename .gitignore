@@ -5,3 +5,4 @@ node_modules
 *.iml
 /.idea
 /public/public/memes
+/s3

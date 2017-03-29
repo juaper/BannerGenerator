@@ -16,6 +16,7 @@ export class Generator extends Component {
 
         const { show, format , canvas} = this.props;
 
+
         if(show){
             if(format === 'clean'){
                 this.createCleanSlate()
@@ -25,7 +26,6 @@ export class Generator extends Component {
             }
         }
     };
-
 
     createCleanSlate = ()=>{
         const {canvas} = this.props;

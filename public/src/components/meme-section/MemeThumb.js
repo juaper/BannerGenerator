@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { generatorDisplayToggle, activeImage } from '../../actions/index';
+import { generatorDisplayToggle, activeImage, setDescription } from '../../actions/index';
 import axios from 'axios';
 import LazyLoad from 'react-lazy-load';
 //import LazyLoad from 'react-lazyload';
@@ -14,27 +14,23 @@ export class MemeThumb extends Component {
 
     activateGenerator = ()=> {
         this.props.activeImage([this.getImageSrc('memes')]);
+        this.props.setDescription(this.props.image.description || '');
         this.props.generatorDisplayToggle(true);
         document.querySelector('.cover').style.display = 'block';
-        this.updateMemeRating();
 
     };
 
-    updateMemeRating = ()=>{
-        const {image} = this.props;
-        axios.post('./write-to-firebase',{
-            data : image.name
-        })
-    };
 
     getImageSrc = (type)=>{
         return `./public/build-memes/${type}/${this.props.image.name }`
     };
 
 
+
     render = ()=> {
         const { image } = this.props;
         const src= this.getImageSrc("meme-thumbs");
+        const rating = image.rating ? <span><br/> {image.rating} צפיות  </span> : null;
         return (
             <div className="meme-thumb" src={src} onClick={this.activateGenerator}>
                 {/*<LazyLoad  offset={window.innerWidth > 767 ? 100 : 300} height={window.innerWidth < 767 ? 100 : 160}>*/}
@@ -43,9 +39,10 @@ export class MemeThumb extends Component {
                 <div className="meme-thumb__overlay">
                     <p className="meme-thumb__description">
                         - מחולל הממים -
+                        {rating}
                         <br/>
-                        {image.rating || ''}
                         {image.description}
+
                     </p>
                 </div>
             </div>
@@ -55,7 +52,7 @@ export class MemeThumb extends Component {
 
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ generatorDisplayToggle, activeImage }, dispatch)
+    return bindActionCreators({ generatorDisplayToggle, activeImage, setDescription }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(MemeThumb)

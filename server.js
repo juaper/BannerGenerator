@@ -6,8 +6,9 @@ const bodyParser = require('body-parser');
 const multer  = require('multer');
 const fotology = require("fotology");
 const memeIdentifire = Math.random();
-const s3Uploader = require('./s3');
-const fireBase = require('./firebase');
+const s3Uploader = require('./server-modules/s3');
+const fireBase = require('./server-modules/firebase');
+const PopularController = require('./server-modules/PopularController');
 
 
 app.use(bodyParser.urlencoded({
@@ -83,29 +84,16 @@ app.get('/', function (req, res) {
 });
 
 
-app.post('/write-to-firebase', function (req, res) {
-    fireBase.write(req.body.data);
+app.post('/update-popular-meme-rating', function (req, res) {
+    fireBase.updatePopularMeme(req.body.data,req.body.description);
 });
 app.get('/get-popular-memes', function (req, res) {
 
     const promise = new Promise((resolve,reject)=>{
-
-        resolve(fireBase.getData(''))
-
+        resolve(fireBase.getPopularData(''))
     }).then((data)=>  {
-        const sortedData = getObjectAsArray(data).sort((a,b) => b.rating - a.rating).slice(0,24);
-        res.send(sortedData);
-
+        res.send(PopularController.getCurrentSortedData(data));
     });
-
-    const getObjectAsArray = (obj)=>{
-        let arr = [];
-        for (var prop in obj){
-            arr.push(obj[prop]);
-        }
-
-        return arr;
-    }
 
 });
 
