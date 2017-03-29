@@ -57,9 +57,10 @@ export class TextInputsContainer extends Component {
 
     updateMemeRating = ()=>{
         const {activeImage,description} = this.props;
-        console.log(description)
+        const imageNameArray = activeImage.replace('memes/','');
+        const imageName = imageNameArray[imageNameArray.length - 1];
         axios.post('./update-popular-meme-rating',{
-            data : activeImage,
+            data : imageName,
             description : description
         })
     };
