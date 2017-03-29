@@ -1,25 +1,25 @@
 const s3Uploader =   (file)=>{
     /*
-    var AWS = require('aws-sdk');
-    AWS.config.update({
+     var AWS = require('aws-sdk');
+     AWS.config.update({
 
-                      });
-    var s3 = new AWS.S3();
-
-
-// Bucket names must be unique across all S3 users
-
-    var myBucket = 'memeking.meme-storage';
+     });
+     var s3 = new AWS.S3();
 
 
-    s3.putObject({
-                     Bucket: myBucket,
-                     Key: new Date() + '.jpg',
-                     Body: file
-                 }, function (err) {
-        if (err) { throw err; }
-    });
-*/
+     // Bucket names must be unique across all S3 users
+
+     var myBucket = 'memeking.meme-storage';
+
+
+     s3.putObject({
+     Bucket: myBucket,
+     Key: new Date() + '.jpg',
+     Body: file
+     }, function (err) {
+     if (err) { throw err; }
+     });
+     */
 }
 
 module.exports = s3Uploader;
