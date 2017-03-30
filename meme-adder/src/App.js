@@ -70,13 +70,12 @@ class App extends Component {
 
 
           <option value="reality">reality</option>
-          <option value="goalstar">goalstar</option>
           <option value="jews">jews</option>
           <option value="media">media</option>
           <option value="mashups">mashups</option>
           <option value="general">general</option>
-
           <option value="__">________</option>
+          <option value="goalstar">goalstar</option>
           <option value="israeli_tv">israeli tv</option>
           <option value="tv_abroad">tv abroad</option>
           <option value="israeli">israeli</option>
@@ -99,7 +98,7 @@ class App extends Component {
           {this.state.changedList.map((meme)=>{
             return (
                 <div className="wrapper">
-                  <img src={`http://localhost:8080/public/memes/${meme.name}`} />
+                  <img src={`http://localhost:3000/public/memes/${meme.name}`} />
                   <input id={meme.name} type="text" onChange={this.listDescription}/>
                 </div>
             )

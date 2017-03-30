@@ -36,7 +36,6 @@ const FireBase = (()=>{
     const getPopularData = (key)=> {
         const currentWeek = DateController.getCurrentWeekId();
         const path = key ? `/popular/${currentWeek}/${key}/` : `/popular/${currentWeek}`;
-        console.log(path);
         return database.ref(path).once('value').then(function(snapshot) {
             return snapshot.val();
         });

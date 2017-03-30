@@ -20,8 +20,14 @@ const JPG_QUALITY = 'veryhigh'; //low, medium, high , veryhigh
 
 /*** TASKS ***/
 
-const FOLDER = 'general';
+const FOLDER = '**';
+function swallowError (error) {
 
+    // If you want details of the error in the console
+    console.log(error.toString())
+
+    this.emit('end')
+}
 //this task activates the quality optimization ('img-quality-opt')
 // and when its finished its calling the resize function "imageResizer()"
 gulp.task('opt-memes', function () {
@@ -31,17 +37,24 @@ gulp.task('opt-memes', function () {
                            imageminPngquant({quality: PNG_QUALITY}),
 
                        ]))
+        .on('error', swallowError)
+
         .pipe(imageResize({
                               width:  500,
                               crop: false,
                               upscale: false
                           }))
+        .on('error', swallowError)
+
+
         .pipe(gulp.dest(`./public/build-memes/memes${FOLDER === '**' ? '' : `/${FOLDER}`}`))
         .pipe(imageResize({
                               width:  200,
                               crop: false,
                               upscale: false
                           }))
+        .on('error', swallowError)
+
         .pipe(gulp.dest(`./public/build-memes/meme-thumbs${FOLDER === '**' ? '' : `/${FOLDER}`}`))
 });
 
