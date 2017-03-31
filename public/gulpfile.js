@@ -22,10 +22,8 @@ const JPG_QUALITY = 'veryhigh'; //low, medium, high , veryhigh
 
 const FOLDER = '**';
 function swallowError (error) {
-
     // If you want details of the error in the console
     console.log(error.toString())
-
     this.emit('end')
 }
 //this task activates the quality optimization ('img-quality-opt')

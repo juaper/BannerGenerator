@@ -48,7 +48,8 @@
       text-transform: capitalize;
       display:block;
       @include mobile-medium{
-        display:none;
+        display: block;
+        font-size: 10px;
       }
     }
   }
