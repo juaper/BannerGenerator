@@ -30,7 +30,7 @@ export class MemeThumb extends Component {
     render = ()=> {
         const { image } = this.props;
         const src= this.getImageSrc("meme-thumbs");
-        const rating = image.rating ? <span><br/> {image.rating} צפיות  </span> : null;
+        const rating = image.rating ? <span className="meme-thumb__download-counter"><br/> {image.rating} הורדות  </span> : null;
         return (
             <div className="meme-thumb" src={src} onClick={this.activateGenerator}>
                 {/*<LazyLoad  offset={window.innerWidth > 767 ? 100 : 300} height={window.innerWidth < 767 ? 100 : 160}>*/}
