@@ -35,7 +35,7 @@ app.use(urlencodedParser);
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:60646');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:58896');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -54,8 +54,6 @@ app.use(function (req, res, next) {
 
 app.post("/reset", function (req, res) {
     const ObjectArrayCreator = require('./ObjectsArrayCreator');
-    console.log('sfsdfsdf' +
-                '')
     ObjectArrayCreator();
 });
 
