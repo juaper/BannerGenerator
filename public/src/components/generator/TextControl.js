@@ -79,7 +79,7 @@ export class TextControl extends Component{
                 return 0.05 * canvas.height;
                 break;
             case 'bottom':
-                return (canvas.height - textBox.fontSize * 1.8);
+                return (canvas.height - textBox.fontSize * 2.2);
                 break;
             case 'middle':
                 return  canvas.height / 2;

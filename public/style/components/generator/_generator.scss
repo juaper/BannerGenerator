@@ -19,8 +19,9 @@ $closeColor : darkgray;
 
   @include mobile-medium{
     border-radius: 0;
-    top: 3px;
-    height: 99%;
+    top: 0px;
+    height: 100%;
+    width:100%;
   }
 
   &__close{
@@ -33,7 +34,7 @@ $closeColor : darkgray;
     @include mobile-medium{
       position: fixed;
       top : 0;
-      right : 0;
+      right : -2px;
       color:darken($closeColor, 8%);
 
     }
