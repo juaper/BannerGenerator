@@ -87,7 +87,8 @@ export class TextInputsContainer extends Component {
     handleGoogleAnalytics = ()=>{
         const textAreas = document.getElementsByTagName('TEXTAREA');
         const imagePath = this.props.activeImage.split('/');
-        const imageName = imagePath[imagePath.length - 1].replace('jpg','');
+        const description = this.props.description;
+        const imageName = description || imagePath[imagePath.length - 1].replace('jpg','');
         let text = `${imageName} : ${textAreas[0].value} ${textAreas[1].value}`;
         ga('send', {
             hitType: 'event',
