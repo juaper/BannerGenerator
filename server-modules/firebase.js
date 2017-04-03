@@ -43,7 +43,7 @@ const FireBase = (()=>{
 
 
     const saveSearchText = (text)=>{
-        database.ref( `searchWords/`).set({text: text});
+        database.ref( `searchWords/${text}/`).set(text);
 
     }
 
