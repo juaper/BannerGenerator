@@ -41,9 +41,16 @@ const FireBase = (()=>{
         });
     };
 
+
+    const saveSearchText = (text)=>{
+        database.ref( `searchWords/`).set({text: text});
+
+    }
+
     return{
         updatePopularMeme : writPopularData,
-        getPopularData :getPopularData
+        getPopularData :getPopularData,
+        saveSearchText : saveSearchText
     }
 })();
 

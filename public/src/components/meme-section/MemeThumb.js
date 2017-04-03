@@ -17,7 +17,21 @@ export class MemeThumb extends Component {
         this.props.setDescription(this.props.image.description || '');
         this.props.generatorDisplayToggle(true);
         document.querySelector('.cover').style.display = 'block';
+       this.saveSearchTextToDataBase();
 
+
+
+    };
+
+
+    saveSearchTextToDataBase = ()=>{
+
+        const {fromSearch , searchValue} = this.props;
+        if(fromSearch){
+            axios.post('./save-search-text',{
+                data : searchValue,
+            })
+        }
     };
 
 

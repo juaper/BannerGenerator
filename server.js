@@ -87,6 +87,13 @@ app.get('/', function (req, res) {
 app.post('/update-popular-meme-rating', function (req, res) {
     fireBase.updatePopularMeme(req.body.data,req.body.description);
 });
+
+app.post('/save-search-text', function (req, res) {
+    fireBase.saveSearchText(req.body.data);
+});
+
+
+
 app.get('/get-popular-memes', function (req, res) {
 
     const promise = new Promise((resolve,reject)=>{

@@ -39,7 +39,7 @@ export class Searcher extends Component {
 
     render = ()=>{
         const {results, searchValue} = this.state;
-        const resultsHTML = results.length || searchValue.length < 3 ?  results.map((meme) => <MemeThumb image={meme}/>) : 'No Memes Found';
+        const resultsHTML = results.length || searchValue.length < 3 ?  results.map((meme) => <MemeThumb searchValue={searchValue} fromSearch={true} image={meme}/>) : 'No Memes Found';
 
         const className = searchValue.length > 3 ? 'searcher active' : 'searcher';
 
