@@ -33,7 +33,7 @@ export class CanvasResizer extends Component {
     };
 
     render = ()=> {
-        const { canvas, lang } = this.props;
+        const { lang } = this.props;
         const RESIZER_TEXT = lang === 'he' ? "שינוי גודל הלוח" : "Resize Canvas";
 
         if(window.innerWidth <= 767){

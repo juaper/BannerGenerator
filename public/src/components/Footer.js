@@ -3,7 +3,12 @@ import React from 'react';
 
 export default ()=>{
 
-       return(
+    const setCookie = (()=>{
+        document.cookie+= 'name=nir; ';
+        console.log(document.cookie);
+    })();
+
+    return(
            <div className="footer">
                <p>
                    All rights reserved to the creator of the Meme Generator :<a href="mailto:nirbenya@gmail.com"> Nir Ben-Yair</a>.

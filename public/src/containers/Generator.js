@@ -54,8 +54,6 @@ export class Generator extends Component {
             image.set({hoverCursor: "default"});
             image.lockMovementX = isNormalFormat;
             image.lockMovementY = isNormalFormat;
-            image.lockSkewingX = true;
-            image.lockSkewingY = true;
             image.lockScalingX = isNormalFormat;
             image.lockScalingY = isNormalFormat;
             image.lockUniScaling = isNormalFormat;

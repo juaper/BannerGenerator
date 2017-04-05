@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { generatorDisplayToggle, activeImage, setDescription } from '../../actions/index';
 import axios from 'axios';
-import LazyLoad from 'react-lazy-load';
+//import LazyLoad from 'react-lazy-load';
 //import LazyLoad from 'react-lazyload';
 
 
@@ -13,14 +13,14 @@ export class MemeThumb extends Component {
     }
 
     activateGenerator = ()=> {
-        this.props.activeImage([this.getImageSrc('memes')]);
-        this.props.setDescription(this.props.image.description || '');
-        this.props.generatorDisplayToggle(true);
+
+        const {activeImage , setDescription , generatorDisplayToggle,image} = this.props;
+        const {getImageSrc,saveSearchTextToDataBase} = this;
+        activeImage([getImageSrc('memes')]);
+        setDescription(image.description || '');
+        generatorDisplayToggle(true);
         document.querySelector('.cover').style.display = 'block';
-       this.saveSearchTextToDataBase();
-
-
-
+        saveSearchTextToDataBase();
     };
 
 

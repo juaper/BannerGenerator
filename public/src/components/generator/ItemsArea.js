@@ -21,6 +21,8 @@ export  class ItemsArea extends Component {
             image.left = canvas.width / 2;
             image.top = canvas.height / 2;
             canvas.add(image);
+            image.lockSkewingX = false;
+            image.lockSkewingY = false;
             self.bringAllTextForward()
         });
 

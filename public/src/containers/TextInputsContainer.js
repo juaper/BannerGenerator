@@ -36,6 +36,7 @@ export class TextInputsContainer extends Component {
     };
 
     download = (event)=> {
+        //const pass = '69GACP';
         const canvas = this.props.canvas;
         canvas.deactivateAll().renderAll();
         const clickedElement = event.target.tagName === 'SPAN' ? event.target.parentNode : event.target;

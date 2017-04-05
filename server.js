@@ -96,6 +96,8 @@ app.post('/save-search-text', function (req, res) {
 
 app.get('/get-popular-memes', function (req, res) {
 
+    console.log(req.headers.cookie);
+
     const promise = new Promise((resolve,reject)=>{
         resolve(fireBase.getPopularData(''))
     }).then((data)=>  {
