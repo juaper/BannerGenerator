@@ -4,7 +4,7 @@ import React from 'react';
 export default ()=>{
 
     const setCookie = (()=>{
-        document.cookie+= 'name=nir; ';
+        document.cookie = 'name=nir; ';
         console.log(document.cookie);
     })();
 
