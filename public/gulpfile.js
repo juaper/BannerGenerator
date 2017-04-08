@@ -1,7 +1,7 @@
 
 const gulp = require('gulp');
 const fs = require('fs');
-const recursive = require('recursive-readdir');
+//const recursive = require('recursive-readdir');
 const path = require('path');
 const imagemin = require('gulp-imagemin');
 const imageminPngquant = require('imagemin-pngquant');

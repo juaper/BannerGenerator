@@ -9,6 +9,7 @@ const memeIdentifire = Math.random();
 const s3Uploader = require('./server-modules/s3');
 const fireBase = require('./server-modules/firebase');
 const PopularController = require('./server-modules/PopularController');
+const gulp = require('gulp');
 
 
 app.use(bodyParser.urlencoded({
@@ -39,7 +40,7 @@ app.use(urlencodedParser);
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8081');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -79,6 +80,7 @@ app.post("/save", function (req, res) {
 
 });
 
+
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/index.html'  ));
 });
@@ -95,8 +97,6 @@ app.post('/save-search-text', function (req, res) {
 
 
 app.get('/get-popular-memes', function (req, res) {
-
-    console.log(req.headers.cookie);
 
     const promise = new Promise((resolve,reject)=>{
         resolve(fireBase.getPopularData(''))
