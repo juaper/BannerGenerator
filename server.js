@@ -9,7 +9,6 @@ const memeIdentifire = Math.random();
 const s3Uploader = require('./server-modules/s3');
 const fireBase = require('./server-modules/firebase');
 const PopularController = require('./server-modules/PopularController');
-const gulp = require('gulp');
 
 
 app.use(bodyParser.urlencoded({
