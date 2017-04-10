@@ -10,7 +10,7 @@ const PopularController = (()=>{
     };
 
     const getCurrentSortedData = (data)=>{
-        return  getObjectAsArray(data).filter(meme => meme.name).sort((a,b) => b.rating - a.rating).slice(0,24);
+        return  getObjectAsArray(data).filter(meme => meme.name).sort((a,b) => b.rating - a.rating).slice(0,48);
     };
 
 

@@ -29,7 +29,10 @@ export class MemeSectionsContainer extends Component {
     getPopularSection = ()=> {
         const self = this;
         axios.get('./get-popular-memes').then((response)=> {
-            const popularSection = (<MemeSection open={false} title="הפופולאריים השבוע" type="popular" data={response.data} />);
+
+            const data = window.innerWidth <= 767 ? response.data.slice(0,30) : response.data;
+
+            const popularSection = (<MemeSection open={false} title="הפופולאריים השבוע" type="popular" data={data} />);
             self.setState({ sections: [popularSection, ...self.state.sections] })
 
         });
