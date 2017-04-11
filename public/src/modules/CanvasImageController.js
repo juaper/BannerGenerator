@@ -1,14 +1,14 @@
 export const setHeightAndWidth = (picture, wantedMaxHeight, wantedMaxWidth)=> {
     const SPACE_TO_RECUDE_FROM_CANVAS = window.innerWidth < 767 ? 30 : 50;
     const container = document.querySelector('.generator__canvas-wrapper');
-    var maxWidth = wantedMaxWidth || container.offsetWidth - SPACE_TO_RECUDE_FROM_CANVAS; // Max width for the image
-    var maxHeight = wantedMaxHeight || 500;    // Max height for the image
-    var ratio = 0;  // Used for aspect ratio
+    let maxWidth = wantedMaxWidth || container.offsetWidth - SPACE_TO_RECUDE_FROM_CANVAS; // Max width for the image
+    let maxHeight = wantedMaxHeight || 500;    // Max height for the image
+    let ratio = 0;  // Used for aspect ratio
 
 
     //handles the case of really small images - this will make the image in the size of the canvas.
     if(picture.width < maxWidth){
-        const ratio = maxWidth / picture.width;
+        let ratio = maxWidth / picture.width;
         picture.width  = maxWidth;
         picture.height = picture.height  * ratio;
     }
@@ -31,9 +31,9 @@ export const setHeightAndWidth = (picture, wantedMaxHeight, wantedMaxWidth)=> {
 };
 
 export const setHeightAndWidthAccordingToNewFormat = (picture)=> {
-    var canvas_wrapper = document.querySelector(".generator__canvas-wrapper");
-    var maxWidth;
-    var maxHeight;
+    let canvas_wrapper = document.querySelector(".generator__canvas-wrapper");
+    let maxWidth;
+    let maxHeight;
     if (window.innerWidth < 700) {
         maxWidth = canvas_wrapper.offsetWidth * 0.94 - 30; // Max width for the image
         maxHeight = 400;    // Max height for the image
@@ -45,7 +45,7 @@ export const setHeightAndWidthAccordingToNewFormat = (picture)=> {
         picture.top = 140;
         picture.left = 10;
     }
-    var ratio = 0;  // Used for aspect ratio
+    let ratio = 0;  // Used for aspect ratio
     // Check if the current width is larger than the max
     if (picture.width > maxWidth) {
         ratio = maxWidth / picture.width;   // get ratio for scaling image
