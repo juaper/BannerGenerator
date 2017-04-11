@@ -4,7 +4,16 @@ export const setHeightAndWidth = (picture, wantedMaxHeight, wantedMaxWidth)=> {
     var maxWidth = wantedMaxWidth || container.offsetWidth - SPACE_TO_RECUDE_FROM_CANVAS; // Max width for the image
     var maxHeight = wantedMaxHeight || 500;    // Max height for the image
     var ratio = 0;  // Used for aspect ratio
+
+
+    //handles the case of really small images - this will make the image in the size of the canvas.
+    if(picture.width < maxWidth){
+        const ratio = maxWidth / picture.width;
+        picture.width  = maxWidth;
+        picture.height = picture.height  * ratio;
+    }
     // Check if the current width is larger than the max
+
     if (picture.width > maxWidth) {
         ratio = maxWidth / picture.width;   // get ratio for scaling image
         picture.width = maxWidth; // Set new width
