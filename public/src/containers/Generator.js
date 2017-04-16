@@ -12,14 +12,14 @@ export class Generator extends Component {
 
 
 
-    componentDidUpdate= ()=>{
+    componentDidUpdate = ()=>{
 
         const { show, format , canvas} = this.props;
 
 
         if(show){
             if(format === 'clean'){
-                this.createCleanSlate()
+                this.createCleanSlate();
             }
             else{
                 this.addImage(canvas);

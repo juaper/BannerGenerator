@@ -15,6 +15,7 @@ import CLASSIC from './classic'
 import ANIMALS from './animals';
 import MEDIA from './media';
 import PARLAMENT from './parlament';
+import STANDUP from './standup';
 
 module.exports =   [
     {type: "dank memes", data : DANK},
@@ -24,6 +25,7 @@ module.exports =   [
     {type: "Mashups", data : MASHUPS},
     {type: "ממים ישראליים", data : ISRAELI},
     {type: "הפרלמנט", data : PARLAMENT},
+    {type:  "סטנדאפ", data: STANDUP},
     {type: "סדרות ישראליות", data : ISRAELI_TV},
     {type: "חיות", data : ANIMALS},
     {type: "ארץ נהדרת", data : ERETZ_NEHEDERET},

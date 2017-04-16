@@ -74,6 +74,8 @@ class App extends Component {
           <option value="media">media</option>
           <option value="mashups">mashups</option>
           <option value="general">general</option>
+          <option value="standup">standup</option>
+
           <option value="__">________</option>
           <option value="goalstar">goalstar</option>
           <option value="israeli_tv">israeli tv</option>
