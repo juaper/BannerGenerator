@@ -7,7 +7,9 @@ const items = [
     "tg_blunt.png",
     "tg_galsses.png",
     "tg_hat.png",
-    "vest.png"
+    "vest.png",
+    "highscool.png",
+    "hearteyes.png"
 ];
 
 module.exports = items;

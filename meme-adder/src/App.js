@@ -101,6 +101,7 @@ class App extends Component {
             return (
                 <div className="wrapper">
                   <img src={`http://localhost:3000/public/memes/${meme.name}`} />
+                  <p>{meme.name} </p>
                   <input id={meme.name} type="text" onChange={this.listDescription}/>
                 </div>
             )
