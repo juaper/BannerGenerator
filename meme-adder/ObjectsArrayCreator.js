@@ -15,12 +15,10 @@ const ObjectsArrayCreator = ()=>{
                 return true;
             }
         }
-        console.log('false')
         return false;
     }
 
     function getFileContent(directory,filesList) {
-        console.log('here');
         const newerArray = filesList.map(file => `{name :'${directory}/${file}', description : ''}`);
         return `module.exports =  [${newerArray}]`
     }
@@ -34,7 +32,6 @@ const ObjectsArrayCreator = ()=>{
             const currentArray = oldArray.slice();
             fileList.forEach((file)=>{
                 if(!containsFile(file, currentArray)){
-                    console.log('push')
                     currentArray.push({name:`${directory}/${file}`,description:''})
                 }
             });
