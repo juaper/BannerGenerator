@@ -1,1 +1,1 @@
-module.exports =  []
+module.exports = { memes : [] , date : 'Wed Apr 19 2017 21:54:07 GMT+0300 (IDT)' } 

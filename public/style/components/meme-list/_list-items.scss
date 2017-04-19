@@ -1,11 +1,8 @@
 
 
 h2.meme-section-title{
-  text-align:center;
-  color: white;
-  text-transform: capitalize;
+
   cursor:pointer;
-  font-size:4rem;
   padding: 40px;
   margin : 0;
   display: flex;
@@ -22,6 +19,10 @@ h2.meme-section-title{
       width: 50px;
     }
   }
+  .text_container{
+    display:flex;
+    flex-direction:column;
+  }
   .text{
     width:300px;
     display:flex;
@@ -29,7 +30,31 @@ h2.meme-section-title{
     text-align:left;
     margin-right: 50px;
     justify-content: flex-end;
+    color: white;
+    font-size:4rem;
+    text-transform: capitalize;
+    @include mobile-medium{
+      width:220px;
+      font-size:30px;
+      margin-right:25px;
+    }
   }
+
+  p.date{
+    font-size:12px;
+    text-align:left;
+    margin: 9px 0 0 0 ;
+    direction:ltr;
+    color: white;
+
+    .glyphicon-gift{
+      color: lighten(#F4C904, 5%);
+      margin-right :5px;
+      order : 1;
+    }
+
+  }
+
 
 
   @include mobile-medium{
@@ -39,16 +64,30 @@ h2.meme-section-title{
 
 }
 
-$colors: #c1e0f5 #fbaea8 darken(#b8f5d2, 5%) darken(peachpuff, 5%) #A87383 #42b4d6 #DE9B88 lighten(#42b4d6, 1%) darken(#fbaea8 , 1%)
-darken(#c1e0f5, 1%) darken(#b8f5d2, 1%) darken(peachpuff, 1%) darken( #42b4d6, 1%)  darken(#fa8, 12%) darken(#DE9B88, 1%) darken(#A87383, 1%) darken(#A4C7B7, 1%) darken(peachpuff, 2%) darken(#DE9B88, 3%);
+//$colors: #c1e0f5 #fbaea8 darken(#b8f5d2, 5%) darken(peachpuff, 5%) #A87383 #42b4d6 #DE9B88 lighten(#42b4d6, 1%) darken(#fbaea8 , 1%)
+//darken(#c1e0f5, 1%) darken(#b8f5d2, 1%) darken(peachpuff, 1%) darken( #42b4d6, 1%)  darken(#fa8, 12%) darken(#DE9B88, 1%) darken(#A87383, 1%) darken(#A4C7B7, 1%) darken(peachpuff, 2%) darken(#DE9B88, 3%);
 
+
+$colors : $mainColor $mainColor $mainColor $mainColor $mainColor $mainColor $mainColor $mainColor $mainColor $mainColor $mainColor $mainColor $mainColor;
 .memes-container {
-  @each $color in $colors {
-    $i: index($colors, $color);
+  //@each $color in $colors {
+  //  $i: index($colors, $color);
+  //  &:nth-of-type(#{$i}) {
+  //    background: $mainColor
+  //    &:hover{
+  //      background: darken($color, 5%);
+  //    }
+  //  }
+  //}
+
+  border-bottom: 1px solid rgba(200,200,200,0.3);
+
+  @for  $i from 0 through 20 {
     &:nth-of-type(#{$i}) {
-      background: $color;
+      $curr : darken($mainColor, $i * 2);
+      background: $curr;
       &:hover{
-        background: darken($color, 5%);
+        background: lighten($curr, 5%);
       }
     }
   }

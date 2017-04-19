@@ -27,15 +27,19 @@ const ObjectsArrayCreator = ()=>{
 
         const filePath = `../public/src/data/${directory}.js`;
 
-
-            const oldArray = require(filePath);
-            const currentArray = oldArray.slice();
+            let isUpdated = false;
+            const oldObject = require(filePath);
+            const currentArray = oldObject.memes.slice();
             fileList.forEach((file)=>{
                 if(!containsFile(file, currentArray)){
-                    currentArray.push({name:`${directory}/${file}`,description:''})
+                    currentArray.push({name:`${directory}/${file}`,description:''});
+                    isUpdated = true;
                 }
             });
-            return `module.exports =  ${JSON.stringify(currentArray)}`
+            const dateOfUpdate  = isUpdated ? new Date() : oldObject.date;
+            // return `module.exports =  ${JSON.stringify(currentArray)}`
+        return `module.exports = { memes : ${JSON.stringify(currentArray)} , date : '${dateOfUpdate}' } `
+
     }
 
 // return all the sub directories in a certain given path

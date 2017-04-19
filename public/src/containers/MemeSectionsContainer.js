@@ -16,7 +16,7 @@ export class MemeSectionsContainer extends Component {
     updateSections = ()=> {
         const { data } = this.props;
 
-        const sections = data.map((section)=> <MemeSection title={section.type} open={false} type={section.type} data={section.data} />);
+        const sections = data.map(({type,data,date})=> <MemeSection title={type} open={false} type={type} data={data.memes} dateUpdated={data.date} />);
         this.setState({ sections: sections });
         this.getPopularSection();
     };
@@ -25,7 +25,10 @@ export class MemeSectionsContainer extends Component {
         const self = this;
         axios.get('./get-popular-memes').then((response)=> {
             const data = window.innerWidth <= 767 ? response.data.slice(0,30) : response.data;
-            const popularSection = (<MemeSection open={false} title="הפופולאריים השבוע" type="popular" data={data.reverse()} />);
+            const popularSection = (<MemeSection open={false}
+                                                 title="הפופולאריים השבוע"
+                                                 type="popular"
+                                                 data={data.reverse()} />);
             self.setState({ sections: [popularSection, ...self.state.sections] })
 
         });

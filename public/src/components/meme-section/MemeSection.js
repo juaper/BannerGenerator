@@ -34,7 +34,7 @@ export default class MemeSection extends Component {
     render= ()=> {
         return (
             <div className="memes-container" ref={(el) => { this.messagesEnd = el; }}>
-                <SectionTitle text={this.props.title} clickEvent={this.toggleSection} icon={this.getIcon()} />
+                <SectionTitle text={this.props.title} clickEvent={this.toggleSection} icon={this.getIcon()} dateUpdated={this.props.dateUpdated} />
                 {this.renderMemeGallery()}
             </div>
         );
