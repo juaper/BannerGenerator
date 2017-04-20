@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { generatorDisplayToggle, activeImage, setDescription } from '../../actions/index';
 import axios from 'axios';
 //import LazyLoad from 'react-lazy-load';
-//import LazyLoad from 'react-lazyload';
+import LazyLoad from 'react-lazyload';
 
 
 export class MemeThumb extends Component {
@@ -47,9 +47,9 @@ export class MemeThumb extends Component {
         const rating = image.rating ? <span className="meme-thumb__download-counter"><br/> {image.rating * 4} הורדות  </span> : null;
         return (
             <div className="meme-thumb" src={src} onClick={this.activateGenerator}>
-                {/*<LazyLoad  offset={window.innerWidth > 767 ? 100 : 300} height={window.innerWidth < 767 ? 100 : 160}>*/}
+                <LazyLoad  offset={window.innerWidth > 767 ? 100 : 300} height={window.innerWidth < 767 ? 100 : 160}>
                 <img src={src} alt={src} className="meme-thumb__img" />
-                {/*</LazyLoad>*/}
+                </LazyLoad>
                 <div className="meme-thumb__overlay">
                     <p className="meme-thumb__description">
                         - מחולל הממים -
