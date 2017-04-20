@@ -8,6 +8,9 @@ import { setHeightAndWidth, setHeightAndWidthAccordingToNewFormat } from '../mod
 export class Generator extends Component {
     constructor(props){
         super(props);
+        this.state = {
+            showLoader : true
+        }
     }
 
 
@@ -16,13 +19,12 @@ export class Generator extends Component {
 
         const { show, format , canvas} = this.props;
 
-
         if(show){
             if(format === 'clean'){
                 this.createCleanSlate();
             }
             else{
-                this.addImage(canvas);
+                this.addImage(canvas)
             }
         }
     };
@@ -38,6 +40,7 @@ export class Generator extends Component {
     };
 
     addImage = (canvas)=>{
+
         const imageUrl = this.props.activeImage,
             {format} = this.props,
             isNormalFormat = format === 'normal',
@@ -47,6 +50,7 @@ export class Generator extends Component {
         const self = this;
         canvas.clear();
         fabric.Image.fromURL(imageUrl, function (image) {
+            document.querySelector(".spinner").style.display = 'none';
             image = isNormalFormat  ? setHeightAndWidth(image) : setHeightAndWidthAccordingToNewFormat(image) ;
             canvas.setHeight(isNormalFormat ? image.height : image.height + spaceToADDForDankFormatStyle );
             canvas.setWidth(isNormalFormat ? image.width : MOBILE_DANK_CANVAS_SIZE);
@@ -61,6 +65,7 @@ export class Generator extends Component {
             image.selectable = true;
             self.addWaterMark();
         });
+        console.log('add image')
 
     };
 
@@ -99,6 +104,11 @@ export class Generator extends Component {
         document.querySelector(".cover").style.display = 'none';
     };
 
+
+    getLoaderHtml = ()=>{
+        return ( <div className="spinner">Loading&</div> );
+    };
+
     render= ()=>{
         const {lang} = this.props;
         const GENERATOR_TITLE = lang === 'he' ? 'מחולל הממים' : "Meme Generator";
@@ -111,6 +121,7 @@ export class Generator extends Component {
                     <div className="generator__wrapper">
                         <div className="generator__canvas-wrapper col-sm-7">
                             <Canvas />
+                            {this.state.showLoader ? this.getLoaderHtml() : null}
                         </div>
                         <div className="generator__utils col-sm-5">
                             <TextInputContainer />
