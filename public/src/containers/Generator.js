@@ -46,10 +46,11 @@ export class Generator extends Component {
             isNormalFormat = format === 'normal',
             spaceToADDForDankFormatStyle = window.innerWidth < 767 ? 100 : 150,
             canvasContainerWidth = document.querySelector('.generator__canvas-wrapper').offsetWidth - 30;
+            canvas.setWidth(canvasContainerWidth);
         const MOBILE_DANK_CANVAS_SIZE = window.innerWidth < 767 ? canvasContainerWidth : 400;
+        const GENERATOR_BACKGROUND_COLOR = '#f1f1f1';
 
-        canvas.setWidth(canvasContainerWidth);
-
+        canvas.backgroundColor = GENERATOR_BACKGROUND_COLOR;
         const self = this;
         canvas.clear();
         fabric.Image.fromURL(imageUrl, function (image) {
@@ -59,6 +60,7 @@ export class Generator extends Component {
             canvas.setHeight(isNormalFormat ? image.height : image.height + spaceToADDForDankFormatStyle );
             canvas.setWidth(isNormalFormat ? image.width : MOBILE_DANK_CANVAS_SIZE);
             canvas.add(image);
+            canvas.backgroundColor = '#fff';
             image.set({hoverCursor: "default"});
             image.lockMovementX = isNormalFormat;
             image.lockMovementY = isNormalFormat;
