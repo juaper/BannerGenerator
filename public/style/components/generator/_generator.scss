@@ -17,6 +17,10 @@ $closeColor : darkgray;
   overflow:scroll;
   z-index: 9999;
 
+  canvas{
+    width: 100%;
+  }
+
   @include mobile-medium{
     border-radius: 0;
     top: 0px;

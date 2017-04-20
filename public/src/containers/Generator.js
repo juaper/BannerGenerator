@@ -52,6 +52,7 @@ export class Generator extends Component {
         fabric.Image.fromURL(imageUrl, function (image) {
             document.querySelector(".spinner").style.display = 'none';
             image = isNormalFormat  ? setHeightAndWidth(image) : setHeightAndWidthAccordingToNewFormat(image) ;
+
             canvas.setHeight(isNormalFormat ? image.height : image.height + spaceToADDForDankFormatStyle );
             canvas.setWidth(isNormalFormat ? image.width : MOBILE_DANK_CANVAS_SIZE);
             canvas.add(image);
