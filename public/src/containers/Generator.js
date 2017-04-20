@@ -47,6 +47,9 @@ export class Generator extends Component {
             spaceToADDForDankFormatStyle = window.innerWidth < 767 ? 100 : 150,
             canvasContainerWidth = document.querySelector('.generator__canvas-wrapper').offsetWidth - 30;
         const MOBILE_DANK_CANVAS_SIZE = window.innerWidth < 767 ? canvasContainerWidth : 400;
+
+        canvas.setWidth(canvasContainerWidth);
+
         const self = this;
         canvas.clear();
         fabric.Image.fromURL(imageUrl, function (image) {
