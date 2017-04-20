@@ -24,7 +24,7 @@ export class Searcher extends Component {
         const resultMemes = [];
 
         data.forEach((category) =>{
-            category.data.slice().forEach((meme)=>{
+            category.data.memes.slice().forEach((meme)=>{
                 if(meme.description.toLowerCase().includes(value.toLowerCase())){
                     resultMemes.push(meme)
                 }
