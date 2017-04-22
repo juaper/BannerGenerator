@@ -131,6 +131,15 @@ export class ExampleSection extends Component {
         if(!this.props.visible){ return null}
         const {description, descriptionFromDataBase, descriptionAuthorName, examples} = this.state;
 
+        const SEND_EXAMPLE_BTN = (
+            <div>
+                <Button style="send_btn" click={this.saveExampleImageToDataBase} text="שמרו את המם שלכם כדוגמא" icon="glyphicon glyphicon-send" />
+                <p className="example_explanation hebrew">במידה ותבחר באפשרות זו, המם יישמר במאגר שלנו ויוצג כדוגמא
+                    אפשרית לשימוש במם, במידה ויימצא מתאים לכך.
+                </p>
+            </div>
+        );
+
 
         return (
             <div>
@@ -144,10 +153,7 @@ export class ExampleSection extends Component {
 
                         />
                 <div className="examples_section">
-                    <Button style="send_btn" click={this.saveExampleImageToDataBase} text="שמרו את המם שלכם כדוגמא" icon="glyphicon glyphicon-send" />
-                    <p className="example_explanation hebrew">במידה ותבחר באפשרות זו, המם יישמר במאגר שלנו ויוצג כדוגמא
-                        אפשרית לשימוש במם, במידה ויימצא מתאים לכך.
-                    </p>
+                    {window.innerWidth > 767 ? SEND_EXAMPLE_BTN : null}
                     {examples.length ? <h5> דוגמאות לשימוש במם </h5> : null}
                     <ExamplesContainer exampleImages={examples}/>
 
