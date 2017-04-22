@@ -126,7 +126,7 @@ export class TextInputsContainer extends Component {
                 </div>
                 <Button text="הסבר ודוגמאות לשימוש"
                         icon="glyphicon glyphicon-question-sign"
-                        style="format-changer"
+                        style="format-changer example-toggle"
                         click={this.toggleExampleArea} />
                 <ExampleSection meme={activeImage} visible={this.state.isExampleSectionVisible} />
 

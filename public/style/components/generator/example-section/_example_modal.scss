@@ -6,3 +6,18 @@
     max-width : 100%;
   }
 }
+
+p.example_confirmation{
+  padding: 10px;
+  direction : rtl;
+  text-align:center;
+  display:flex;
+  height: 200px;
+  align-items:center;
+  justify-content:center;
+  font-weight: bold;
+}
+
+.modal{
+  top: 20%;
+}

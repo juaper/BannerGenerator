@@ -1,7 +1,7 @@
 $mainGeneratorControllersColor: #c25975;
 $green : #5fcf80;
 $bordercolor: darken(#c25975, 10%);
-
+$exampleColor : #ED6F57;
 
 .generator-uploader-wrapper{
   width: 49%;
@@ -48,6 +48,11 @@ $bordercolor: darken(#c25975, 10%);
     span{
       width: auto !important;
     }
+  }
+
+  &.example-toggle{
+    background: $mainColor !important;
+    border-color: darken($mainColor, 5%) !important;
   }
 
   &.download{

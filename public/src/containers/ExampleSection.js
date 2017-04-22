@@ -4,6 +4,8 @@ import {bindActionCreators} from 'redux';
 import ExamplesContainer from '../components/generator/ExamplesContainer';
 import DescriptionContainer from '../components/generator/DescriptionContainer';
 import Button from '../components/generator/Button';
+import {Modal} from 'react-bootstrap';
+
 export class ExampleSection extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +13,8 @@ export class ExampleSection extends Component {
             examples: [],
             description: '',
             descriptionFromDataBase: 'initial',
-            descriptionAuthorName: ''
+            descriptionAuthorName: '',
+            showModal : false
         }
     }
 
@@ -47,7 +50,7 @@ export class ExampleSection extends Component {
                 const {description, images} = exampleObjectFromDataBase;
                 const currentExamples = self.getObjectAsArray(images);
                 self.setState({
-                    examples: currentExamples.reverse(),
+                    examples: currentExamples.reverse().slice(0, 3),
                     descriptionFromDataBase: description || '',
                 });
             }
@@ -70,16 +73,20 @@ export class ExampleSection extends Component {
 
     saveExampleImageToDataBase = (event) => {
         event.preventDefault();
+        const self = this;
         const MEME_NAME = this.getCurrentMemeNameForDataBase();
         const RANDOM_ID = this.makeRandomId();
         const MEME_UNIQUE_NAME = `${MEME_NAME}__${RANDOM_ID}`;
         const storageRef = firebase.storage().ref();
         const memeImageRef = storageRef.child(`memes/${MEME_NAME}/${MEME_UNIQUE_NAME}.jpg`);
         const originalUrlNamePath = `memes/${MEME_NAME}/originalUrlName`;
+
+        self.setState({showModal : true});
+
+
         document.getElementById('c').toBlob((blob) => {
             memeImageRef.put(blob).then(function (snapshot) {
                 console.log(snapshot.downloadURL);
-                alert('meme saved');
                 firebase.database().ref(`examples/${MEME_NAME}/images/${MEME_UNIQUE_NAME}`).set({
                     url: snapshot.downloadURL,
                     approved: false,
@@ -145,6 +152,11 @@ export class ExampleSection extends Component {
                     <ExamplesContainer exampleImages={examples}/>
 
                 </div>
+                <Modal show={this.state.showModal} onHide={()=> this.setState({showModal : false})} >
+                    <p className="example_confirmation">
+                        הדוגמא התקבלה בהצלחה והינה ממתינה לאישור.
+                    </p>
+                </Modal>
             </div>
         )
     }

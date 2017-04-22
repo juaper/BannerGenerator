@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Modal} from 'react-bootstrap';
 import Slider from 'react-slick'
 export default class ExamplesContainer extends Component {
     constructor(props){
