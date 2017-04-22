@@ -8,6 +8,7 @@
   transition: box-shadow 0.3s;
   resize: none;
   text-align: right;
+  direction:rtl;
 
   &.focus, &:focus,&:active{
     box-shadow: inset 1px 1px 2px 0 #c9c9c9;

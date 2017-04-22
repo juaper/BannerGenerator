@@ -46,6 +46,12 @@ const FireBase = (()=>{
         database.ref( `searchWords/${text}/`).set(text);
     };
 
+
+
+
+
+
+
     return{
         updatePopularMeme : writPopularData,
         getPopularData :getPopularData,

@@ -22,5 +22,9 @@
   "engines": {
     "node": "6.9.4",
     "npm": "3.10.10"
+  },
+  "devDependencies": {
+    "jimp": "^0.2.27",
+    "recursive-readdir": "^2.1.1"
   }
 }

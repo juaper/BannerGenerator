@@ -7,11 +7,13 @@ import GeneratorUploader from '../components/generator/GeneratorUploader';
 import CanvasResizer from '../components/generator/CanvasResizer';
 import { modifyTextInputsAmount, changeFormat } from '../actions/index';
 import axios from 'axios';
+import ExampleSection from '../containers/ExampleSection';
 export class TextInputsContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            itemsAreaShown: false
+            itemsAreaShown: false,
+            isExampleSectionVisible : false
         }
 
     }
@@ -105,8 +107,12 @@ export class TextInputsContainer extends Component {
         this.props.canvas.clear();
     };
 
+    toggleExampleArea = ()=>{
+        this.setState({isExampleSectionVisible : !this.state.isExampleSectionVisible})
+    }
+
     render = ()=> {
-        const {format, lang} = this.props;
+        const {format, lang, activeImage} = this.props;
         const FORMAT_BUTTON_TEXT = format === 'normal' ? 'Dank Meme Format' : "Normal Meme Format";
         const ADD_TEXT_LINE = lang === 'he' ? "הוספת שורת טקסט" : "Add a Text Line";
         const ADD_AN_ITEM = lang === 'he' ? "הוספת פריט" : "Add an Item";
@@ -118,6 +124,12 @@ export class TextInputsContainer extends Component {
                 <div>
                     {this.props.textControls}
                 </div>
+                <Button text="הסבר ודוגמאות לשימוש"
+                        icon="glyphicon glyphicon-question-sign"
+                        style="format-changer"
+                        click={this.toggleExampleArea} />
+                <ExampleSection meme={activeImage} visible={this.state.isExampleSectionVisible} />
+
                 <div className="flex space-between">
                     <CanvasResizer />
                     <GeneratorUploader />

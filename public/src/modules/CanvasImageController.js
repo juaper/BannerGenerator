@@ -37,7 +37,7 @@ export const setHeightAndWidthAccordingToNewFormat = (picture)=> {
     if (window.innerWidth < 700) {
         maxWidth = canvas_wrapper.offsetWidth * 0.94 - 30; // Max width for the image
         maxHeight = 400;    // Max height for the image
-        picture.top = 140;
+        picture.top = 90;
         picture.left = 15;
     } else {
         maxWidth = canvas_wrapper.offsetWidth * 0.94 - 30; // Max width for the image

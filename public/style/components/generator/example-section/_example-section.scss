@@ -1,0 +1,64 @@
+$thirdColor : #3EB87F;
+
+.send_btn{
+ @extend .utils_button;
+  background:$thirdColor;
+  border-color: darken($thirdColor, 5%);
+  &:hover{
+    background:darken($thirdColor, 5%)
+  }
+
+  span:not(.glyphicon){
+    width:auto;
+    &.no_icon{
+      width: auto;
+    }
+  }
+}
+.examples_section{
+
+  border: 1px solid $thirdColor;
+  margin-top: 10px;
+  padding:8px;
+
+  h5{
+    text-align:center;
+    font-size: 18px;
+  }
+
+  .examples_thumbs_container{
+    display:flex;
+   div{
+     padding: 10px;
+     max-width: 130px;
+     img{
+       max-width: 100%;
+       align-self: flex-start;
+     }
+   }
+  }
+  .example_explanation{
+    font-size: 11px;
+    text-align:right;
+    direction : rtl;
+  }
+
+  .example_btn{
+    display:block;
+    width: 100%;
+    margin-top : 10px;
+  }
+  .slick-slide {
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+  }
+  .slick-arrow{
+    &:before{
+      color: $thirdColor;
+    }
+  }
+}
+
