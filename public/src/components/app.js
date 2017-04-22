@@ -11,15 +11,25 @@ import Footer from './Footer';
 export class App extends Component {
 
     componentWillMount = ()=>{
+        // Initialize Firebase
+        window.config = {
+            apiKey: "AIzaSyA-f4RHZw205unjWdY4jvh_tJ7E1ZVPYKQ",
+            authDomain: "memeking-80290.firebaseapp.com",
+            databaseURL: "https://memeking-80290.firebaseio.com",
+            storageBucket: "gs://memeking-80290.appspot.com", //"memeking-80290.appspot.com",
+            messagingSenderId: "243226751545"
+        };
+        firebase.initializeApp(config);
         const {setLanguage} = this.props;
-        axios.get('https://freegeoip.net/json/').then((response) => {
-            if(response.data.country_code === 'IL'){
-                setLanguage('he')
-            }
-            else{
-                setLanguage('en')
-            }
-        })
+        setLanguage('he')
+        //
+        // axios.get('https://freegeoip.net/json/').then((response) => {
+        //     if(response.data.country_code === 'IL'){
+        //     }
+        //     else{
+        //         setLanguage('en')
+        //     }
+        // })
     };
 
   render() {
