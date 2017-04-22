@@ -17,6 +17,7 @@ export default ()=>{
                    You can contact me vie e-mail: <a href="mailto:nirbenya@gmail.com"> nirbenya@gmail.com</a>,
                </p>
                <p> Or via Facebook : "Nir Ben-Yair"</p>
+               <p>{window.config.storageBucket}</p>
            </div>
        )
 
