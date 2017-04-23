@@ -66,7 +66,7 @@ export class ExampleSection extends Component {
 
     getCurrentMemeNameForDataBase = () => {
         const {meme} = this.props;
-        //if the meme is not a string it meants it was uploaded or its a clean slate issue
+        if the meme is not a string it meants it was uploaded or its a clean slate issue
         if(!(typeof meme === 'string')){
             this.setState({uploadState : true})
             return 'uploaded meme'
@@ -80,6 +80,7 @@ export class ExampleSection extends Component {
     };
 
     saveExampleImageToDataBase = (event) => {
+        //if the meme is uploaded or its a clean slate case, we will return and not save the meme to the database
         if(this.state.uploadState){
             return;
         }
