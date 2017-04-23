@@ -153,7 +153,7 @@ export class ExampleSection extends Component {
 
                         />
                 <div className="examples_section">
-                    {window.innerWidth > 767 ? SEND_EXAMPLE_BTN : null}
+                    {true ? SEND_EXAMPLE_BTN : null}
                     {examples.length ? <h5> דוגמאות לשימוש במם </h5> : null}
                     <ExamplesContainer exampleImages={examples}/>
 
