@@ -14,7 +14,8 @@ export class ExampleSection extends Component {
             description: '',
             descriptionFromDataBase: 'initial',
             descriptionAuthorName: '',
-            showModal : false
+            showModal : false,
+            uploadState : false
         }
     }
 
@@ -65,7 +66,12 @@ export class ExampleSection extends Component {
 
     getCurrentMemeNameForDataBase = () => {
         const {meme} = this.props;
-        if(!meme){return 'uploaded meme'};
+        //if the meme is not a string it meants it was uploaded or its a clean slate issue
+        if(!(typeof meme === 'string')){
+            this.setState({uploadState : true})
+            return 'uploaded meme'
+        };
+
         return meme.split('memes/').slice(-1)[0].replace(/\./g, '_dot').replace(/\//g, '_slash').replace(/ /g, '_space')
     };
 
@@ -74,6 +80,9 @@ export class ExampleSection extends Component {
     };
 
     saveExampleImageToDataBase = (event) => {
+        if(this.state.uploadState){
+            return;
+        }
         event.preventDefault();
         const self = this;
         const MEME_NAME = this.getCurrentMemeNameForDataBase();
