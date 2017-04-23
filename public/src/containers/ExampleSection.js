@@ -64,7 +64,9 @@ export class ExampleSection extends Component {
 
 
     getCurrentMemeNameForDataBase = () => {
-        return this.props.meme.split('memes/').slice(-1)[0].replace(/\./g, '_dot').replace(/\//g, '_slash').replace(/ /g, '_space')
+        const {meme} = this.props;
+        if(!meme){return 'uploaded meme'};
+        return meme.split('memes/').slice(-1)[0].replace(/\./g, '_dot').replace(/\//g, '_slash').replace(/ /g, '_space')
     };
 
     getOriginalMemeName = () => {
