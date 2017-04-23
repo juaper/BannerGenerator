@@ -108,7 +108,6 @@ app.get('/get-popular-memes', function (req, res) {
 
 
 
-
 app.set( 'port', ( process.env.PORT || 3000 ));
 
 // Start node server

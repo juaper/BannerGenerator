@@ -30,6 +30,7 @@ export class Generator extends Component {
     };
 
     createCleanSlate = ()=>{
+        document.querySelector(".spinner").style.display = 'none';
         const {canvas} = this.props;
         const DISTANCE = window.innerWidth > 767 ? 140 : 30;
         const width = document.querySelector('.generator__canvas-wrapper').offsetWidth - DISTANCE;
