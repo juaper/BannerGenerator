@@ -15,7 +15,7 @@ export class MemeSectionsContainer extends Component {
 
     updateSections = ()=> {
         const { data } = this.props;
-
+        window.try = data;
         const sections = data.map(({type,data,date})=> <MemeSection title={type} open={false} type={type} data={data.memes} dateUpdated={data.date} />);
         this.setState({ sections: sections });
         this.getPopularSection();
