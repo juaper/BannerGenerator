@@ -21,7 +21,7 @@ export default class SectionTitle extends Component {
         }
 
         const dateLastUpdated = new Date(dateUpdated);
-        const DAYS_TO_REDUCE = 1;
+        const DAYS_TO_REDUCE = 2;
 
         const currentDate = new Date();
         return this.getNumberOfDaysBetween(currentDate, dateLastUpdated) <= DAYS_TO_REDUCE;

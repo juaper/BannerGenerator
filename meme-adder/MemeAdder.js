@@ -66,7 +66,16 @@ app.get("/get-cat", function (req, res) {
 
 app.post("/save", function (req, res) {
     const {type, data} = req.body;
-    fs.writeFile(`../public/src/data/${type}.js`,`module.exports = ${JSON.stringify(data)}`, (err)=> {
+    const filePath = `../public/src/data/${type}.js`;
+    const oldObject = require(filePath);
+    const newArray = data.slice();
+    oldObject.memes = newArray;
+    oldObject.date = new Date();
+    // return `module.exports =  ${JSON.stringify(currentArray)}`
+
+    ////
+
+    fs.writeFile(filePath,`module.exports = ${JSON.stringify(oldObject)}`, (err)=> {
         if(err){
             console.log(err,'err')
         }
