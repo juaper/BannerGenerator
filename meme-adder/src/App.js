@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './style/style.css';
-// import data from '../../public/src/data/data';
+//import data from '../../public/src/data/data';
 class App extends Component {
 
   constructor(props){
@@ -40,7 +40,8 @@ class App extends Component {
   };
 
   updateListInState = (data)=>{
-    this.setState({list : data, changedList : data.filter(meme => meme.description === '')});
+    console.log(data)
+    this.setState({list : data.memes, changedList : data.memes.filter(meme => meme.description === '')});
 
     };
 
