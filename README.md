@@ -1,8 +1,6 @@
 # MemeGenerator
 
-You can check the working Generator here :  [www.memeking.co.il](http://memeking.co.il).
-
-I build this meme generator in React.js and Redux.js.
+ React.js and Redux.js.
 
 The build tools I used are Gulp.js and Webpack.js.
 
