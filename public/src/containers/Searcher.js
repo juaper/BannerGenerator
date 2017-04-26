@@ -20,6 +20,17 @@ export class Searcher extends Component {
             this.setState({results : []});
             return;
         }
+
+
+        //analytics
+        ga('send', {
+            hitType: 'event',
+            eventCategory: 'Search',
+            eventAction: value,
+            eventLabel: 'Search'
+        });
+
+
         const data = this.props.data;
         const resultMemes = [];
 
